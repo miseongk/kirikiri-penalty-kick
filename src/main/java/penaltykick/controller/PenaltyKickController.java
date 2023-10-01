@@ -13,6 +13,16 @@ public class PenaltyKickController {
 		this.inputView = inputView;
 	}
 
+	public void run() {
+		startGame();
+
+	}
+
+	private void startGame() {
+		Player firstPlayer = inputPlayer();
+		Player secondPlayer = inputPlayer();
+	}
+
 	private Player inputPlayer() {
 		List<Integer> playerNumber = inputView.readPlayerNumber();
 		return new Player(playerNumber);

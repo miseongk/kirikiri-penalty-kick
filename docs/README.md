@@ -6,10 +6,10 @@
     - [x] 1에서 3 사이의 숫자를 입력해야 한다. (숫자 사이는 공백으로 구분한다.)
     - [x] 빈칸이 입력되면 IllegalArgumentException 을 발생한다.
     - [x] 숫자가 아닌 값이 들어오면 IllegalArgumentException 을 발생한다.
-- [ ] 플레이어 2의 위치를 5번 입력한다.
-    - [ ] 1에서 3 사이의 숫자를 입력해야 한다. (숫자 사이는 공백으로 구분한다.)
-    - [ ] 빈칸이 입력되면 IllegalArgumentException 을 발생한다.
-    - [ ] 숫자가 아닌 값이 들어오면 IllegalArgumentException 을 발생한다.
+- [x] 플레이어 2의 위치를 5번 입력한다.
+    - [x] 1에서 3 사이의 숫자를 입력해야 한다. (숫자 사이는 공백으로 구분한다.)
+    - [x] 빈칸이 입력되면 IllegalArgumentException 을 발생한다.
+    - [x] 숫자가 아닌 값이 들어오면 IllegalArgumentException 을 발생한다.
 - [ ] 컴퓨터의 위치와 플레이어의 위치를 비교한다.
 - [ ] 게임 결과를 출력한다.
     - [ ] 둘 중 더 많이 넣은 사람이 우승한다.
