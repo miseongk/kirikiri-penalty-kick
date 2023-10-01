@@ -1,4 +1,4 @@
-package penaltykick;
+package penaltykick.domain;
 
 import java.util.List;
 
