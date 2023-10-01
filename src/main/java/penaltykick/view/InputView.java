@@ -7,21 +7,21 @@ import java.util.stream.Collectors;
 
 public class InputView {
 
-	private final Scanner scanner = new Scanner(System.in);
+	private static final Scanner scanner = new Scanner(System.in);
 
-	public List<Integer> readPlayerNumber() {
-		String readNumber = scanner.next();
+	public static List<Integer> readPlayerNumber() {
+		String readNumber = scanner.nextLine();
 		validateBlank(readNumber);
 		return splitWord(readNumber);
 	}
 
-	private void validateBlank(String input) {
+	private static void validateBlank(String input) {
 		if (input == null || input.isBlank()) {
 			throw new IllegalArgumentException("반칸이 입력될 수 없습니다.");
 		}
 	}
 
-	private int validateInteger(String input) {
+	private static int validateInteger(String input) {
 		try {
 			return Integer.parseInt(input);
 		} catch (NumberFormatException e) {
@@ -29,9 +29,9 @@ public class InputView {
 		}
 	}
 
-	private List<Integer> splitWord(String input) {
+	private static List<Integer> splitWord(String input) {
 		return Arrays.stream(input.split(" "))
-			.map(this::validateInteger)
+			.map(InputView::validateInteger)
 			.collect(Collectors.toList());
 	}
 }
