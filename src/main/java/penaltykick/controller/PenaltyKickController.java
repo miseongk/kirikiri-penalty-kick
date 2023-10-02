@@ -23,6 +23,7 @@ public class PenaltyKickController {
 
 	private void startGame() {
 		Computer computerNumbers = createComputerNumber();
+		computerNumbers.getComputerNumbers().forEach(System.out::print);
 		OutputView.printFirstPlayerInputMessage();
 		Player firstPlayer = createPlayer();
 		OutputView.printSecondPlayerInputMessage();

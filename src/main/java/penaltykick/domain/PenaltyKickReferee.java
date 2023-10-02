@@ -15,11 +15,11 @@ public class PenaltyKickReferee {
 
 	public List<String> calculateResult(Computer computer, Player player) {
 		List<String> result = new ArrayList<>();
-		for (int i = 0; i < REPEAT_NUMBER; i++) {
-			if (computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i))) {
+		for (int i = 0; i < computer.getComputerNumberSize(); i++) {
+			if (computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i), i)) {
 				result.add("O");
 			}
-			if (!computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i))) {
+			if (!computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i), i)) {
 				result.add("X");
 			}
 		}

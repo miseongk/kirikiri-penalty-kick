@@ -10,7 +10,15 @@ public class Computer {
 		this.computerNumbers = computerNumbers;
 	}
 
-	public boolean checkNumberByPlayer(int playerNumber) {
-		return computerNumbers.contains(playerNumber);
+	public boolean checkNumberByPlayer(int playerNumber, int i) {
+		return computerNumbers.get(i) == playerNumber;
+	}
+
+	public int getComputerNumberSize() {
+		return computerNumbers.size();
+	}
+
+	public List<Integer> getComputerNumbers() {
+		return computerNumbers;
 	}
 }
