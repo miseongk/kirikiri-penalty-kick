@@ -19,4 +19,8 @@ public class Player {
 			throw new IllegalArgumentException("잘못된 입력입니다.");
 		}
 	}
+
+	public int getPlayerNumberByIndex(int index) {
+		return playerNumber.get(index);
+	}
 }

@@ -1,5 +1,7 @@
 package penaltykick.view;
 
+import java.util.List;
+
 public class OutputView {
 
 	private OutputView() {
@@ -19,5 +21,29 @@ public class OutputView {
 
 	public static void printSecondPlayerInputMessage() {
 		System.out.print("플레이어 2: ");
+	}
+
+	public static void printGameResult() {
+		System.out.println("게임 결과");
+	}
+
+	public static void printFirstPlayerResult(List<String> result) {
+		System.out.println("플레이어1 : " + result);
+	}
+
+	public static void printSecondPlayerResult(List<String> result) {
+		System.out.println("플레이어2 : " + result);
+	}
+
+	public static void printWinner(int firstPlayerResult, int secondPlayerResult) {
+		if (firstPlayerResult > secondPlayerResult) {
+			System.out.println("플레이어1이(가) 우승했습니다\uD83C\uDF89");
+		}
+		if (firstPlayerResult < secondPlayerResult) {
+			System.out.println("플레이어2이(가) 우승했습니다\uD83C\uDF89");
+		}
+		if (firstPlayerResult == secondPlayerResult) {
+			System.out.println("무승부입니다.");
+		}
 	}
 }

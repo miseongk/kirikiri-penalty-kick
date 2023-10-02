@@ -27,6 +27,14 @@ public class PenaltyKickController {
 		Player firstPlayer = createPlayer();
 		OutputView.printSecondPlayerInputMessage();
 		Player secondPlayer = createPlayer();
+		List<String> firstPlayerResult = penaltyKickReferee.calculateResult(computerNumbers, firstPlayer);
+		List<String> secondPlayerResult = penaltyKickReferee.calculateResult(computerNumbers, secondPlayer);
+		OutputView.printGameResult();
+		OutputView.printFirstPlayerResult(firstPlayerResult);
+		OutputView.printSecondPlayerResult(secondPlayerResult);
+		int firstPlayerCount = penaltyKickReferee.resultCount(firstPlayerResult);
+		int secondPlayerCount = penaltyKickReferee.resultCount(secondPlayerResult);
+		OutputView.printWinner(firstPlayerCount, secondPlayerCount);
 	}
 
 	private Player createPlayer() {

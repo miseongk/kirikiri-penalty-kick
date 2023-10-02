@@ -9,4 +9,8 @@ public class Computer {
 	public Computer(List<Integer> computerNumbers) {
 		this.computerNumbers = computerNumbers;
 	}
+
+	public boolean checkNumberByPlayer(int playerNumber) {
+		return computerNumbers.contains(playerNumber);
+	}
 }
