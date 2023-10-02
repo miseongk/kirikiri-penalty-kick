@@ -13,7 +13,28 @@ public class PenaltyKickReferee {
 		this.numberGenerator = numberGenerator;
 	}
 
-	public void calculate
+	public List<String> calculateResult(Computer computer, Player player) {
+		List<String> result = new ArrayList<>();
+		for (int i = 0; i < REPEAT_NUMBER; i++) {
+			if (computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i))) {
+				result.add("O");
+			}
+			if (!computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i))) {
+				result.add("X");
+			}
+		}
+		return result;
+	}
+
+	public int resultCount(List<String> result) {
+		int count = 0;
+		for (String element : result) {
+			if (element.contains("O")) {
+				count++;
+			}
+		}
+		return count;
+	}
 
 	public Computer generateComputer() {
 		List<Integer> computerNumber = generateRandomNumber();
