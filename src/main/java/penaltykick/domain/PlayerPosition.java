@@ -33,6 +33,9 @@ public class PlayerPosition {
 	private boolean isRightLength(int[] playerPos) {
 		return playerPos.length == POSITION_LENGTH;
 	}
+	private boolean isNumber(int[] playerPos) {
+		return Arrays.stream(playerPos).allMatch(pos -> START_RANGE <= pos && pos <= END_RANGE);
+	}
 
 	public List<Integer> getPlayerPosition() {
 		return playerPosition;
