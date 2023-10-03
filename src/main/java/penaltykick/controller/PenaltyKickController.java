@@ -23,18 +23,24 @@ public class PenaltyKickController {
 
 	private void startGame() {
 		Computer computerNumbers = createComputerNumber();
+
 		OutputView.printFirstPlayerInputMessage();
 		Player firstPlayer = createPlayer();
+
 		OutputView.printSecondPlayerInputMessage();
 		Player secondPlayer = createPlayer();
-		String firstPlayerResult = penaltyKickReferee.calculateResult(computerNumbers, firstPlayer);
-		String secondPlayerResult = penaltyKickReferee.calculateResult(computerNumbers, secondPlayer);
-		OutputView.printGameResult();
-		OutputView.printFirstPlayerResult(firstPlayerResult);
-		OutputView.printSecondPlayerResult(secondPlayerResult);
-		long firstPlayerCount = penaltyKickReferee.resultCount(firstPlayerResult);
-		long secondPlayerCount = penaltyKickReferee.resultCount(secondPlayerResult);
-		OutputView.printWinner(firstPlayerCount, secondPlayerCount);
+
+		String firstPlayerResult = calculate(computerNumbers, firstPlayer);
+		String secondPlayerResult = calculate(computerNumbers, secondPlayer);
+
+		printGameResult(firstPlayerResult, secondPlayerResult);
+
+		createWinner(firstPlayerResult, secondPlayerResult);
+	}
+
+	private Computer createComputerNumber() {
+		OutputView.printInputMessage();
+		return penaltyKickReferee.generateComputer();
 	}
 
 	private Player createPlayer() {
@@ -42,8 +48,19 @@ public class PenaltyKickController {
 		return penaltyKickReferee.generatePlayer(playerNumbers);
 	}
 
-	private Computer createComputerNumber() {
-		OutputView.printInputMessage();
-		return penaltyKickReferee.generateComputer();
+	private static void printGameResult(String firstPlayerResult, String secondPlayerResult) {
+		OutputView.printGameResult();
+		OutputView.printFirstPlayerResult(firstPlayerResult);
+		OutputView.printSecondPlayerResult(secondPlayerResult);
+	}
+
+	private String calculate(Computer computerNumbers, Player Player) {
+		return penaltyKickReferee.calculateResult(computerNumbers, Player);
+	}
+
+	private void createWinner(String firstPlayerResult, String secondPlayerResult) {
+		long firstPlayerCount = penaltyKickReferee.resultCount(firstPlayerResult);
+		long secondPlayerCount = penaltyKickReferee.resultCount(secondPlayerResult);
+		OutputView.printWinner(firstPlayerCount, secondPlayerCount);
 	}
 }
