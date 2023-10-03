@@ -6,6 +6,8 @@ import java.util.List;
 public class PenaltyKickReferee {
 
 	private static final int REPEAT_NUMBER = 5;
+	private static final String ALPHABET_O = "O";
+	private static final String ALPHABET_X = "X";
 
 	private final NumberGenerator numberGenerator;
 
@@ -17,10 +19,10 @@ public class PenaltyKickReferee {
 		List<String> result = new ArrayList<>();
 		for (int i = 0; i < computer.getComputerNumberSize(); i++) {
 			if (computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i), i)) {
-				result.add("O");
+				result.add(ALPHABET_O);
 			}
 			if (!computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i), i)) {
-				result.add("X");
+				result.add(ALPHABET_X);
 			}
 		}
 		return result;
@@ -29,7 +31,7 @@ public class PenaltyKickReferee {
 	public int resultCount(List<String> result) {
 		int count = 0;
 		for (String element : result) {
-			if (element.contains("O")) {
+			if (element.contains(ALPHABET_O)) {
 				count++;
 			}
 		}
