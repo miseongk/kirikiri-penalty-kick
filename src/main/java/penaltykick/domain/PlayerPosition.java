@@ -8,7 +8,11 @@ public class PlayerPosition {
 	private static final int END_RANGE = 3;
 	private final List<Integer> playerPosition;
 
-	public PlayerPosition(List<Integer> playerPosition) {
-		this.playerPosition = playerPosition;
+	public PlayerPosition(String playerInput) {
+		this.playerPosition = createPlayerPosition(playerInput);
+	}
+
+	private List<Integer> createPlayerPosition(String str) throws IllegalArgumentException {
+		return null;
 	}
 }
