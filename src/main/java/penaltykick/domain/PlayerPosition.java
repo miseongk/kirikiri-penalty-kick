@@ -2,7 +2,6 @@ package penaltykick.domain;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 public class PlayerPosition {
