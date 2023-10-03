@@ -4,6 +4,8 @@ import java.util.List;
 
 public class OutputView {
 
+	private static final String LINE_BREAK = System.lineSeparator();
+
 	private OutputView() {
 	}
 
@@ -24,6 +26,7 @@ public class OutputView {
 	}
 
 	public static void printGameResult() {
+		System.out.print(LINE_BREAK);
 		System.out.println("게임 결과");
 	}
 
@@ -35,7 +38,7 @@ public class OutputView {
 		System.out.println("플레이어2 : " + result);
 	}
 
-	public static void printWinner(int firstPlayerResult, int secondPlayerResult) {
+	public static void printWinner(long firstPlayerResult, long secondPlayerResult) {
 		if (firstPlayerResult > secondPlayerResult) {
 			System.out.println("플레이어1이(가) 우승했습니다\uD83C\uDF89");
 		}
