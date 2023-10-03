@@ -2,6 +2,7 @@ package penaltykick.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 public class PlayerPosition {
@@ -20,7 +21,7 @@ public class PlayerPosition {
 	}
 
 	private int[] convertStringToInt(String str) {
-		return str.chars().map(num -> num - '0').toArray();
+		return Arrays.stream(str.split(" ")).mapToInt(Integer::parseInt).toArray();
 	}
 
 	public List<Integer> getPlayerPosition() {
