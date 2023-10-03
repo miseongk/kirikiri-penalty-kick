@@ -1,6 +1,8 @@
 package penaltykick.domain;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PlayerPosition {
 	private static final int POSITION_LENGTH = 5;
@@ -13,6 +15,11 @@ public class PlayerPosition {
 	}
 
 	private List<Integer> createPlayerPosition(String str) throws IllegalArgumentException {
-		return null;
+		int[] playerPosition = convertStringToInt(str);
+		return Arrays.stream(playerPosition).boxed().collect(Collectors.toList());
+	}
+
+	private int[] convertStringToInt(String str) {
+		return str.chars().map(num -> num - '0').toArray();
 	}
 }
