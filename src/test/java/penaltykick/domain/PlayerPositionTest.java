@@ -20,6 +20,13 @@ class PlayerPositionTest {
 		assertThrows(IllegalArgumentException.class, () -> {
 			new PlayerPosition(input);
 		});
+	}
 
+	@Test
+	void 입력_예외_테스트() {
+		String input = "1 3 ~ 2 1";
+		assertThrows(IllegalArgumentException.class, () -> {
+			new PlayerPosition(input);
+		});
 	}
 }
