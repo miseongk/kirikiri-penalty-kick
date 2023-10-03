@@ -9,6 +9,9 @@ public class InputView {
 
 	private static final Scanner scanner = new Scanner(System.in);
 
+	private InputView() {
+	}
+
 	public static List<Integer> readPlayerNumber() {
 		String readNumber = scanner.nextLine();
 		validateBlank(readNumber);
