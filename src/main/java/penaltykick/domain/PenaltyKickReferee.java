@@ -28,14 +28,10 @@ public class PenaltyKickReferee {
 		return result;
 	}
 
-	public int resultCount(List<String> result) {
-		int count = 0;
-		for (String element : result) {
-			if (element.contains(ALPHABET_O)) {
-				count++;
-			}
-		}
-		return count;
+	public long resultCount(List<String> result) {
+		return result.stream()
+			.filter(element -> element.contains(ALPHABET_O))
+			.count();
 	}
 
 	public Computer generateComputer() {
