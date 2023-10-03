@@ -13,4 +13,13 @@ class PlayerPositionTest {
 		int[] playerPos = new PlayerPosition(input).getPlayerPosition().stream().mapToInt(num -> num).toArray();
 		assertArrayEquals(pos, playerPos);
 	}
+
+	@Test
+	void 입력_길이_초과_테스트() {
+		String input = "1 3 2 2 1 2";
+		assertThrows(IllegalArgumentException.class, () -> {
+			new PlayerPosition(input);
+		});
+
+	}
 }
