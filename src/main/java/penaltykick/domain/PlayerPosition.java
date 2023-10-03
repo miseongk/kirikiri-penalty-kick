@@ -22,4 +22,8 @@ public class PlayerPosition {
 	private int[] convertStringToInt(String str) {
 		return str.chars().map(num -> num - '0').toArray();
 	}
+
+	public List<Integer> getPlayerPosition() {
+		return playerPosition;
+	}
 }
