@@ -17,9 +17,9 @@ public class PlayerPosition {
 	private List<Integer> createPlayerPosition(String str) throws IllegalArgumentException {
 		int[] playerPosition = convertStringToInt(str);
 		if (checkValidPosition(playerPosition)) {
-
+			return Arrays.stream(playerPosition).boxed().collect(Collectors.toList());
 		}
-		return Arrays.stream(playerPosition).boxed().collect(Collectors.toList());
+		throw new IllegalArgumentException();
 	}
 
 	private int[] convertStringToInt(String str) {
