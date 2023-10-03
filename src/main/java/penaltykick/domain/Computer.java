@@ -17,8 +17,4 @@ public class Computer {
 	public int getComputerNumberSize() {
 		return computerNumbers.size();
 	}
-
-	public List<Integer> getComputerNumbers() {
-		return computerNumbers;
-	}
 }
