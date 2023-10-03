@@ -23,7 +23,7 @@ public class ComputerPosition {
 	}
 
 	private List<Integer> pickRandomPosition() {
-		return Arrays.stream(new List[POSITION_LENGTH]).map(num -> random.nextInt())
+		return Arrays.stream(new List[POSITION_LENGTH]).map(num -> random.nextInt(END_RANGE) + START_RANGE)
 			.collect(Collectors.toList());
 	}
 
