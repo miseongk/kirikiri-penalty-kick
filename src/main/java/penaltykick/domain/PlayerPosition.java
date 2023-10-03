@@ -16,11 +16,22 @@ public class PlayerPosition {
 
 	private List<Integer> createPlayerPosition(String str) throws IllegalArgumentException {
 		int[] playerPosition = convertStringToInt(str);
+		if (checkValidPosition(playerPosition)) {
+
+		}
 		return Arrays.stream(playerPosition).boxed().collect(Collectors.toList());
 	}
 
 	private int[] convertStringToInt(String str) {
 		return Arrays.stream(str.split(" ")).mapToInt(Integer::parseInt).toArray();
+	}
+
+	private boolean checkValidPosition(int[] playerPos) {
+		return isRightLength(playerPos) && isNumber(playerPos);
+	}
+
+	private boolean isRightLength(int[] playerPos) {
+		return playerPos.length == POSITION_LENGTH;
 	}
 
 	public List<Integer> getPlayerPosition() {
