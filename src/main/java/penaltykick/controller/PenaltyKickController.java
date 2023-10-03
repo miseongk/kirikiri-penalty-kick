@@ -23,7 +23,6 @@ public class PenaltyKickController {
 
 	private void startGame() {
 		Computer computerNumbers = createComputerNumber();
-		computerNumbers.getComputerNumbers().forEach(System.out::print);
 		OutputView.printFirstPlayerInputMessage();
 		Player firstPlayer = createPlayer();
 		OutputView.printSecondPlayerInputMessage();
@@ -33,8 +32,8 @@ public class PenaltyKickController {
 		OutputView.printGameResult();
 		OutputView.printFirstPlayerResult(firstPlayerResult);
 		OutputView.printSecondPlayerResult(secondPlayerResult);
-		int firstPlayerCount = penaltyKickReferee.resultCount(firstPlayerResult);
-		int secondPlayerCount = penaltyKickReferee.resultCount(secondPlayerResult);
+		long firstPlayerCount = penaltyKickReferee.resultCount(firstPlayerResult);
+		long secondPlayerCount = penaltyKickReferee.resultCount(secondPlayerResult);
 		OutputView.printWinner(firstPlayerCount, secondPlayerCount);
 	}
 
