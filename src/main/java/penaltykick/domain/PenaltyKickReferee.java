@@ -1,6 +1,7 @@
 package penaltykick.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PenaltyKickReferee {
@@ -15,21 +16,21 @@ public class PenaltyKickReferee {
 		this.numberGenerator = numberGenerator;
 	}
 
-	public List<String> calculateResult(Computer computer, Player player) {
-		List<String> result = new ArrayList<>();
+	public String calculateResult(Computer computer, Player player) {
+		StringBuilder stringBuilder = new StringBuilder();
 		for (int i = 0; i < computer.getComputerNumberSize(); i++) {
 			if (computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i), i)) {
-				result.add(ALPHABET_O);
+				stringBuilder.append(ALPHABET_O);
 			}
 			if (!computer.checkNumberByPlayer(player.getPlayerNumberByIndex(i), i)) {
-				result.add(ALPHABET_X);
+				stringBuilder.append(ALPHABET_X);
 			}
 		}
-		return result;
+		return stringBuilder.toString();
 	}
 
-	public long resultCount(List<String> result) {
-		return result.stream()
+	public long resultCount(String result) {
+		return Arrays.stream(result.split(""))
 			.filter(element -> element.contains(ALPHABET_O))
 			.count();
 	}

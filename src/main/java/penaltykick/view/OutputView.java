@@ -1,7 +1,5 @@
 package penaltykick.view;
 
-import java.util.List;
-
 public class OutputView {
 
 	private static final String LINE_BREAK = System.lineSeparator();
@@ -30,11 +28,11 @@ public class OutputView {
 		System.out.println("게임 결과");
 	}
 
-	public static void printFirstPlayerResult(List<String> result) {
+	public static void printFirstPlayerResult(String result) {
 		System.out.println("플레이어1 : " + result);
 	}
 
-	public static void printSecondPlayerResult(List<String> result) {
+	public static void printSecondPlayerResult(String result) {
 		System.out.println("플레이어2 : " + result);
 	}
 
