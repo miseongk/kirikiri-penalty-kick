@@ -9,8 +9,14 @@ import org.junit.jupiter.api.Test;
 class ComputerPositionTest {
 
 	@Test
-	void 서로다른_임의의_수_다섯_개_생성() {
+	void 숫자_길이_확인() {
 		List<Integer> result = new ComputerPosition().getComputerPosition();
 		assertEquals(5, result.size());
+	}
+
+	@Test
+	void 숫자_범위_확인() {
+		List<Integer> result = new ComputerPosition().getComputerPosition();
+		assertTrue(result.stream().allMatch(num -> 1 <= num && num <= 3));
 	}
 }
