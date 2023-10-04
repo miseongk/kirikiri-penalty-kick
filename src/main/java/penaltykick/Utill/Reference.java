@@ -10,5 +10,7 @@ public class Reference {
     public static final String ERROR_MESSAGE = "Error 잘못된 입력입니다";
     public static final String WINNER_MESSAGE = "플레이어%d이(가) 우승했습니다";
     public static final String CUT_CHARACTER = " ";
+    public static final String GOAL_SIGN = "O";
+    public static final String NO_GOAL_SIGN = "X";
 
 }

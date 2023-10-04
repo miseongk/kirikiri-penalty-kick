@@ -2,8 +2,6 @@ package penaltykick.view;
 
 
 import penaltykick.domain.Player;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -12,13 +10,10 @@ import java.util.stream.Collectors;
 import static penaltykick.Utill.Reference.*;
 
 public class InputView {
-
-    private final OutputView outputView = new OutputView();
     private static Scanner sc = new Scanner(System.in);
 
-
     public void readInputController(List<Player> list){
-        outputView.printStartMessage();
+
         for (int i = 1; i <= PLAYER_COUNT; i++) {
             System.out.printf(PLAYER_MESSAGE,i);
             list.add(readInput());

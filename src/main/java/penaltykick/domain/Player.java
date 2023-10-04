@@ -13,9 +13,7 @@ public class Player {
     private int point = 0;
     public Player(List<Integer> list){
             this.directionList = list;
-
     }
-
     public void calculatePoint( List<Integer> computerDirection) {
         for(int i = 0 ; i < INPUT_COUNT; i++){
             if(directionList.get(i) != computerDirection.get(i)) {
