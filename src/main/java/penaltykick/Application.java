@@ -1,5 +1,8 @@
 package penaltykick;
 
+import domain.Computer;
+import domain.Player;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -35,19 +38,37 @@ public class Application {
         // 사용자값 입력 받기
         Scanner scanner = new Scanner(System.in);
 
-        try{
+        String player1_input = null;
+        String player2_input = null;
+
+        try {
             System.out.print("플레이어1 : ");
-            String player1 = scanner.nextLine();
+            player1_input = scanner.nextLine();
 
             //유효성 검증
-            validate(player1);
+            validate(player1_input);
 
             System.out.print("플레이어2 : ");
-            String player2 = scanner.nextLine();
+            player2_input = scanner.nextLine();
 
-            validate(player2);
-        }catch (IllegalArgumentException e) {
+            validate(player2_input);
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+
+        Player player1 = new Player(player1_input);
+        Player player2 = new Player(player2_input);
+
+        //컴퓨터 숫자 생성
+        Computer computer = new Computer();
+
+        // 플레이어 1,2의 결과를 출력
+        System.out.println("게임 결과");
+
+        System.out.println("플레이어1 : " + computer.getGameResult(player1.getNumbers()));
+
+        System.out.println("플레이어2 : " + computer.getGameResult(player2.getNumbers()));
+
+        // 비교한 결과를 출력
     }
 }
