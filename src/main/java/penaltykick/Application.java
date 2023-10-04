@@ -19,9 +19,21 @@ public class Application {
     static void insertShooting(int num) throws IOException {
         System.out.print("플레이어"+num+" : ");
         String command = br.readLine();
+        validate(command);
         StringTokenizer st = new StringTokenizer(command);
         for(int i=0;i<shootingNum;++i){
             playerKick[num-1][i]=Integer.parseInt(st.nextToken());
+        }
+    }
+
+    // 슈팅 방향 입력 예외처리
+    static void validate(String command){
+        StringTokenizer tempst = new StringTokenizer(command);
+        if(tempst.countTokens()!=shootingNum) throw new IllegalArgumentException(shootingNum+"개의 수를 입력해주세요.");
+
+        for(int i=0;i<shootingNum;++i){
+            int val=Integer.parseInt(tempst.nextToken());
+            if(val!=1 && val!=2 && val!=3) throw new IllegalArgumentException("잘못된 슈팅 방향이 입력되었습니다.");
         }
     }
     public static void main(String[] args) throws IOException{
