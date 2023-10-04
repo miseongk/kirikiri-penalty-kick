@@ -28,4 +28,9 @@ public class OutputView {
 				}).collect(Collectors.joining(""));
 		System.out.printf("%s : %s\n", player.getName(), result);
 	}
+
+	public static void printMessage(String message) {
+		System.out.println(message);
+
+	}
 }
