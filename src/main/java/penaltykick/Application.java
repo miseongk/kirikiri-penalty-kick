@@ -9,6 +9,8 @@ public class Application {
     static int shootingNum=5; // 각 플레이어의 슈팅 횟수
     static int playerKick[][]; // 플레이어가 슈팅할 방향 저장
     static int kipperDirection[]; // 키퍼가 막을 방향 저장
+    static int maxGoalCount=0; // 최대 골 수 저장
+    static int winner=0; // 승자 플레이어 번호 저장
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     // 시작 출력문구
@@ -46,6 +48,28 @@ public class Application {
             kipperDirection[i]=(rd.nextInt(3)+1);
         }
     }
+
+    // 슈팅 결과 출력
+    static void shooutingResult(int num){
+        int successCount=0;
+        System.out.print("플레이어"+num+" : ");
+        for(int i=0;i<shootingNum;++i){
+            if(kipperDirection[i]!=playerKick[num-1][i]){
+                ++successCount;
+                System.out.print("O");
+            }
+            else{
+                System.out.print("X");
+            }
+        }
+        System.out.println();
+
+        if(maxGoalCount<successCount){
+            maxGoalCount=successCount;
+            winner=num;
+        }
+    }
+
     public static void main(String[] args) throws IOException{
 
         // 플레이어 슈팅 방향 및 키퍼 선방 방향 값을 담은 배열 크기 설정
@@ -60,6 +84,11 @@ public class Application {
 
         // 랜덤 골키퍼 방향 설정
         configKipperDirection();
+
+        // 플레이어별 슈팅 결과 출력
+        System.out.println("\n게임 결과");
+        for(int i=1;i<=playerNum;++i) shooutingResult(i);
+        System.out.println("플레이어"+winner+"이(가) 우승했습니다\uD83C\uDF89");
 
     }
 }
