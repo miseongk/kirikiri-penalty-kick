@@ -8,6 +8,9 @@ public class Application {
         if ("".equals(player)) {
             throw new IllegalArgumentException("빈 값은 입력할 수 없습니다.");
         }
+        if (!player.replaceAll(" ", "").matches("^[0-9]*$")) {
+            throw new IllegalArgumentException("공백으로 구분해서 입력해야 합니다.");
+        }
     }
 
     public static void main(String[] args) {
