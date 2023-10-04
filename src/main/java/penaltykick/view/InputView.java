@@ -38,13 +38,8 @@ public class InputView {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR_MESSAGE);
         }
-        checkRange(list);
         Player player = new Player(list);
         return player;
     }
-    public void checkRange(List<Integer> list){
-        for(int n : list)
-            if(n > 3 || n < 1)
-                throw new IllegalArgumentException(ERROR_MESSAGE);
-    }
+
 }

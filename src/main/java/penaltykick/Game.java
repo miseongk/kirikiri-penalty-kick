@@ -1,5 +1,6 @@
 package penaltykick;
 
+import penaltykick.Utill.Validation;
 import penaltykick.domain.Player;
 import penaltykick.view.InputView;
 import penaltykick.view.OutputView;
@@ -14,20 +15,20 @@ public class Game {
 
     private final OutputView OUTPUT_VIEW ;
     private final InputView INPUT_VIEW ;
+    private final Validation VALIDATION;
     private static final List<Player> PLAYER_INPUT = new ArrayList<>();
     private static final List<Integer> computerDirectionList = new ArrayList<>();
 
-    public Game(OutputView OUTPUT_VIEW, InputView INPUT_VIEW){
-        this.OUTPUT_VIEW = OUTPUT_VIEW;
-        this.INPUT_VIEW = INPUT_VIEW;
+    public Game(OutputView outputView, InputView inputView , Validation validation){
+        this.OUTPUT_VIEW = outputView;
+        this.INPUT_VIEW = inputView;
+        this.VALIDATION = validation;
     }
     public void run(){
         OUTPUT_VIEW.printStartMessage();
         INPUT_VIEW.readInputController(PLAYER_INPUT);
         makeComputerDirectionList();
-        for (int i = 0; i < 5; i++) {
-            System.out.println(computerDirectionList.get(i));
-        }
+        VALIDATION.isValid(PLAYER_INPUT);
         calculateResult(computerDirectionList);
         OUTPUT_VIEW.printResult(PLAYER_INPUT);
         OUTPUT_VIEW.printWinner(getWinner());

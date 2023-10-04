@@ -28,4 +28,7 @@ public class Player {
     public String getResultList(){
         return this.resultList;
     }
+    public List<Integer> getDirectionList(){
+        return this.directionList;
+    }
 }
