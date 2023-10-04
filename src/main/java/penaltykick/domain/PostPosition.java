@@ -2,18 +2,18 @@ package penaltykick.domain;
 
 import java.util.Arrays;
 
-public enum PositionInPost {
+public enum PostPosition {
     LEFT(1),
     MIDDLE(2),
     RIGHT(3);
 
     private final int position;
 
-    PositionInPost(int position) {
+    PostPosition(int position) {
         this.position = position;
     }
 
-    public static PositionInPost valueOf(int position) {
+    public static PostPosition valueOf(int position) {
         return Arrays.stream(values())
                 .filter(v -> v.position == position)
                 .findFirst()

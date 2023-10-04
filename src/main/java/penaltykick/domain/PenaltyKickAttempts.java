@@ -6,9 +6,9 @@ import java.util.List;
 public final class PenaltyKickAttempts {
     private static final int ATTEMPTS_COUNT = 5;
 
-    private final List<PositionInPost> selectedPositions;
+    private final List<PostPosition> selectedPositions;
 
-    public PenaltyKickAttempts(List<PositionInPost> selectedPositions) {
+    public PenaltyKickAttempts(List<PostPosition> selectedPositions) {
         this.selectedPositions = new ArrayList<>(selectedPositions);
         validateSize();
     }
