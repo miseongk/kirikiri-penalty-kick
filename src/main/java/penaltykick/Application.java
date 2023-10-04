@@ -11,6 +11,9 @@ public class Application {
         if (!player.replaceAll(" ", "").matches("^[0-9]*$")) {
             throw new IllegalArgumentException("공백으로 구분해서 입력해야 합니다.");
         }
+        if (player.split(" ").length != 5) {
+            throw new IllegalArgumentException("5개의 값을 입력해야 합니다.");
+        }
     }
 
     public static void main(String[] args) {
