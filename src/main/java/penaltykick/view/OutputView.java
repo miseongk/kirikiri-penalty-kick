@@ -1,5 +1,7 @@
 package penaltykick.view;
 
+import penaltykick.domain.Player;
+
 public class OutputView {
 	public static void printGameStart() {
 		System.out.println("패널티 킥 게임을 시작합니다.\n" +
