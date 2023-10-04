@@ -62,12 +62,15 @@ public class Application {
         //컴퓨터 숫자 생성
         Computer computer = new Computer();
 
+        String player1_win_count = computer.getGameResult(player1.getNumbers());
+        String player2_win_count = computer.getGameResult(player2.getNumbers());
+
         // 플레이어 1,2의 결과를 출력
         System.out.println("게임 결과");
 
-        System.out.println("플레이어1 : " + computer.getGameResult(player1.getNumbers()));
+        System.out.println("플레이어1 : " + player1_win_count);
 
-        System.out.println("플레이어2 : " + computer.getGameResult(player2.getNumbers()));
+        System.out.println("플레이어2 : " + player2_win_count);
 
         // 비교한 결과를 출력
     }
