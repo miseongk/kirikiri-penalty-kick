@@ -2,6 +2,7 @@ package penaltykick.domain;
 
 import penaltykick.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -25,5 +26,9 @@ public class Player {
 
 	public String getName() {
 		return this.name;
+	}
+
+	public List<Integer> getMovePosition() {
+		return new ArrayList<>(movePosition);
 	}
 }

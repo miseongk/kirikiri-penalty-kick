@@ -2,6 +2,7 @@ package penaltykick.domain;
 
 import penaltykick.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Keeper {
@@ -19,5 +20,9 @@ public class Keeper {
 		if (validateCount != 5) {
 			throw new IllegalArgumentException("숫자는 1~3 사이가 5번 입력해야합니다.");
 		}
+	}
+
+	public List<Integer> getMovePosition() {
+		return new ArrayList<>(movePosition);
 	}
 }

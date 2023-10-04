@@ -11,7 +11,6 @@ public class Utils {
 		while (result.size() < count) {
 			result.add(getRandomIntInRange(startInclusive, endInclusive));
 		}
-		System.out.println(result);
 		return result;
 	}
 

@@ -19,10 +19,9 @@ public class MainController {
 		Player player1 = new Player("플레이어1", InputView.readIntListWithDiv("플레이어1 : ", " "));
 		Player player2 = new Player("플레이어2", InputView.readIntListWithDiv("플레이어2 : ", " "));
 		Player winner = service.getWinner(computer, player1, player2);
-		OutputView.printFinalResult(winner);
+		OutputView.printKickResult(player1, service.getKickResult(computer, player1));
+		OutputView.printKickResult(player2, service.getKickResult(computer, player2));
+		OutputView.printWinner(winner);
 	}
 
-	private void gameInit() {
-
-	}
 }
