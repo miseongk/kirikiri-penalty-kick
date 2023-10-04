@@ -8,7 +8,15 @@ import static penaltykick.Utill.Reference.*;
 
 public class OutputView {
 
+    private static OutputView outputView;
 
+    private OutputView(){}
+
+    public static OutputView getInstance(){
+        if(outputView == null)
+            return new OutputView();
+        return outputView;
+    }
     public void printWinner(int winner) {
         if(winner == 0) {
             System.out.println(TIE_MESSAGE);

@@ -25,6 +25,9 @@ public class Game {
         OUTPUT_VIEW.printStartMessage();
         INPUT_VIEW.readInputController(PLAYER_INPUT);
         makeComputerDirectionList();
+        for (int i = 0; i < 5; i++) {
+            System.out.println(computerDirectionList.get(i));
+        }
         calculateResult(computerDirectionList);
         OUTPUT_VIEW.printResult(PLAYER_INPUT);
         OUTPUT_VIEW.printWinner(getWinner());
@@ -40,6 +43,6 @@ public class Game {
     }
     public void makeComputerDirectionList(){
         for(int i = 0 ; i < INPUT_COUNT;i++)
-            computerDirectionList.add((int)(Math.random() * 3));
+            computerDirectionList.add((int)(Math.random() * 3) + 1);
     }
 }
