@@ -28,6 +28,21 @@ public class Application {
         }
     }
 
+    static void comparePlayers(String player1, String player2) {
+        int player1_win_count = player1.replaceAll("X","").length();
+        int player2_win_count = player2.replaceAll("X", "").length();
+
+        if (player1_win_count == player2_win_count) {
+            System.out.println("무승부입니다.");
+        }
+        if (player1_win_count > player2_win_count) {
+            System.out.println("플레이어1이(가) 우승했습니다.");
+        }
+        if (player1_win_count < player2_win_count) {
+            System.out.println("플레이어2이(가) 우승했습니다.");
+        }
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
 
@@ -73,5 +88,6 @@ public class Application {
         System.out.println("플레이어2 : " + player2_win_count);
 
         // 비교한 결과를 출력
+        comparePlayers(player1_win_count, player2_win_count);
     }
 }
