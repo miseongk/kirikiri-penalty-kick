@@ -55,4 +55,19 @@ class OutputViewTest {
 
 		assertEquals(output, outputMessage.toString());
 	}
+
+	@Test
+	void 무승부_출력_확인() {
+		List<Integer> comPos = List.of(2, 3, 3, 1, 3);
+		List<Integer> playerOnePos = List.of(2, 3, 1, 2, 3);
+		List<Integer> playerTwoPos = List.of(2, 3, 1, 2, 3);
+
+		GameResult playerOneGameResult = new GameResult(comPos, playerOnePos);
+		GameResult playerTwoGameResult = new GameResult(comPos, playerTwoPos);
+		new OutputView(playerOneGameResult, playerTwoGameResult).printGameResult();
+
+		String output = "무승부입니다.\n";
+
+		assertEquals(output, outputMessage.toString());
+	}
 }
