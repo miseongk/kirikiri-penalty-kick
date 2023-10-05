@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.StringTokenizer;
 
 public class Application {
-    static int playerNum=2; // 총 플레이어 수
-    static int shootingNum=5; // 각 플레이어의 슈팅 횟수
+    static final int playerNum=2; // 총 플레이어 수
+    static final int shootingNum=5; // 각 플레이어의 슈팅 횟수
     static int playerKick[][]; // 플레이어가 슈팅할 방향 저장
     static int kipperDirection[]; // 키퍼가 막을 방향 저장
     static int maxGoalCount=0; // 최대 골 수 저장
