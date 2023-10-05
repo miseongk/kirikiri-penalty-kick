@@ -16,7 +16,7 @@ public class InputView {
         return InputValidation.validateInputValue(scanner.nextLine());
     }
 
-    public List<Integer> getInputNumberPlayer2() {
+    public List<Integer> inputNumberPlayer2() {
         System.out.println(INPUT_NUMBER_PLAYER_2);
         return InputValidation.validateInputValue(scanner.nextLine());
     }
