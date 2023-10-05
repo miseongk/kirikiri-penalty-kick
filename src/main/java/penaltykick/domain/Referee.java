@@ -17,6 +17,7 @@ public class Referee {
     static final Integer LIMIT = 5;
 
     public Referee() {
+
     }
 
     public Result decideGoalOrNot(ArrayList<Integer> goalkeeperNumbers, ArrayList<Integer> playerNumbers, String playerName) {
