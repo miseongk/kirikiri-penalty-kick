@@ -34,6 +34,24 @@ public class PenaltykickController {
         outputView.printGameResult();
         outputView.printPlayer1Result(player1.getResultString());
         outputView.printPlayer2Result(player2.getResultString());
+        printWinner(player1, player2);
+    }
+
+    public void printWinner(Player player1, Player player2) {
+        int player1Result = player1.getSuccessNumber();
+        int player2Result = player2.getSuccessNumber();
+
+        if(player1Result > player2Result) {
+            outputView.printResultPlayer1Win();
+        }
+
+        if(player1Result < player2Result) {
+            outputView.printResultPlayer2Win();
+        }
+
+        if(player1Result == player2Result) {
+            outputView.printResultDraw();
+        }
     }
 
     public void compareEachPlayer(List<Integer> computerList, Player player) {
