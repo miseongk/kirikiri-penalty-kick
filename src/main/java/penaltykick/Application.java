@@ -1,6 +1,7 @@
 package penaltykick;
 
 
+import penaltykick.controller.GameController;
 import penaltykick.utill.Validation;
 import penaltykick.view.InputView;
 import penaltykick.view.OutputView;
@@ -11,7 +12,7 @@ public class Application {
         OutputView outputView = new OutputView();
         InputView inputView = new InputView();
         Validation validation = new Validation();
-        Game game = new Game(outputView, inputView, validation);
+        GameController game = new GameController(outputView, inputView, validation);
         game.run();
     }
 }

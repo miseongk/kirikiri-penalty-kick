@@ -1,7 +1,7 @@
-package penaltykick;
+package penaltykick.controller;
 
-import penaltykick.utill.Validation;
 import penaltykick.domain.Player;
+import penaltykick.utill.Validation;
 import penaltykick.view.InputView;
 import penaltykick.view.OutputView;
 
@@ -9,16 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static penaltykick.utill.Reference.INPUT_COUNT;
-import static penaltykick.utill.Reference.PLAYER_COUNT;
 
-public class Game {
+public class GameController {
     private static final List<Player> playerList = new ArrayList<>();
     private static final List<Integer> computerDirectionList = new ArrayList<>();
     private final OutputView outputView;
     private final InputView inputView;
     private final Validation validation;
 
-    public Game(OutputView outputView, InputView inputView, Validation validation) {
+    public GameController(OutputView outputView, InputView inputView, Validation validation) {
         this.outputView = outputView;
         this.inputView = inputView;
         this.validation = validation;
@@ -35,7 +34,7 @@ public class Game {
     }
 
     public int getWinner() {
-        if (playerList.get(0).getPoint() > playerList.get(1).getPoint()){
+        if (playerList.get(0).getPoint() > playerList.get(1).getPoint()) {
             return 1;
         }
         if (playerList.get(0).getPoint() < playerList.get(1).getPoint()) {
@@ -45,8 +44,9 @@ public class Game {
     }
 
     public void calculateResult(List<Integer> computerDirectionList) {
-        for (int i = 0; i < PLAYER_COUNT; i++)
-            playerList.get(i).calculatePoint(computerDirectionList);
+        for (Player player : playerList) {
+            player.calculatePoint(computerDirectionList);
+        }
     }
 
     public void makeComputerDirectionList() {
