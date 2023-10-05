@@ -18,4 +18,12 @@ public class OutputView {
 		this.playerOneResult = playerOneResult;
 		this.playerTwoResult = playerTwoResult;
 	}
+
+	public static void printStartFirstMessage() {
+		System.out.println(GAME_START_FIRST_MESSAGE);
+	}
+
+	public static void printStartSecondMessage() {
+		System.out.println(GAME_START_SECOND_MESSAGE);
+	}
 }
