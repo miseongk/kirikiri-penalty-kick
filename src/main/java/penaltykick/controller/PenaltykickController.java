@@ -30,6 +30,10 @@ public class PenaltykickController {
         printResult(player1, player2);
     }
 
+    public void compareEachPlayer(List<Integer> computerList, Player player) {
+        player.initResultValue(PenaltykickService.makeResultString(computerList, player.getNumberList()));
+    }
+
     public void printResult(Player player1, Player player2) {
         outputView.printGameResult();
         outputView.printPlayer1Result(player1.getResultString());
@@ -52,10 +56,6 @@ public class PenaltykickController {
         if(player1Result == player2Result) {
             outputView.printResultDraw();
         }
-    }
-
-    public void compareEachPlayer(List<Integer> computerList, Player player) {
-        player.initResultValue(PenaltykickService.makeResultString(computerList, player.getNumberList()));
     }
 }
 
