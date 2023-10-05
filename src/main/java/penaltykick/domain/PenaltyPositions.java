@@ -3,12 +3,12 @@ package penaltykick.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class PenaltyKickAttempts {
+public final class PenaltyPositions {
     private static final int ATTEMPTS_COUNT = 5;
 
     private final List<PostPosition> selectedPositions;
 
-    public PenaltyKickAttempts(List<PostPosition> selectedPositions) {
+    public PenaltyPositions(List<PostPosition> selectedPositions) {
         this.selectedPositions = new ArrayList<>(selectedPositions);
         validateSize();
     }
@@ -19,4 +19,3 @@ public final class PenaltyKickAttempts {
         }
     }
 }
-
