@@ -10,7 +10,7 @@ public class ComputerPosition {
 	private static final int START_RANGE = 1;
 	private static final int END_RANGE = 3;
 	private final List<Integer> computerPosition;
-	private static Random random = new Random();
+	private final Random random = new Random();
 
 	public ComputerPosition() {
 		this.computerPosition = createRandomPosition();
@@ -18,7 +18,6 @@ public class ComputerPosition {
 
 	private List<Integer> createRandomPosition() {
 		List<Integer> randomPosition = pickRandomPosition();
-		System.out.println(randomPosition);
 		return randomPosition;
 	}
 
