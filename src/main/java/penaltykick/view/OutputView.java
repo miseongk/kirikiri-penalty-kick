@@ -18,8 +18,10 @@ public class OutputView {
 		this.playerOneResult = playerOneResult;
 		this.playerTwoResult = playerTwoResult;
 	}
-	public void printGameResult() {
 
+	public void printGameResult() {
+		printPlayerOneWin();
+		printPlayerTwoWin();
 	}
 
 	public static void printStartFirstMessage() {
@@ -29,9 +31,22 @@ public class OutputView {
 	public static void printStartSecondMessage() {
 		System.out.println(GAME_START_SECOND_MESSAGE);
 	}
+
 	public void printClearMessage() {
 		System.out.println(GAME_CLEAR_MESSAGE + "\n"
 			+ OUTPUT_PLAYER_ONE_MESSAGE + playerOneResult.convertResult + "\n"
 			+ OUTPUT_PLAYER_TWO_MESSAGE + playerTwoResult.convertResult);
+	}
+
+	private void printPlayerOneWin() {
+		if (playerOneResult.goalCount > playerTwoResult.goalCount) {
+			System.out.println(WINNER_PLAYER_ONE_MESSAGE);
+		}
+	}
+
+	private void printPlayerTwoWin() {
+		if (playerOneResult.goalCount < playerTwoResult.goalCount) {
+			System.out.println(WINNER_PLAYER_TWO_MESSAGE);
+		}
 	}
 }
