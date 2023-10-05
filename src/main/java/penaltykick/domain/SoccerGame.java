@@ -11,7 +11,7 @@ public class SoccerGame {
 		this.computerPosition = new ComputerPosition().getComputerPosition();
 	}
 
-	public void inputPlayerPos(String str) {
+	public void inputPlayerPosision(String str) {
 		this.playerPosition = new PlayerPosition(str).getPlayerPosition();
 	}
 
