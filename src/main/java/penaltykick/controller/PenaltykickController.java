@@ -13,6 +13,7 @@ public class PenaltykickController {
 
     public void startProgram() {
         outputView.printStartGame();
+        outputView.printInputFiveNumber();
         try {
             Player player1 = new Player(inputView.inputNumberPlayer1());
             Player player2 = new Player(inputView.inputNumberPlayer2());
@@ -26,9 +27,17 @@ public class PenaltykickController {
         List<Integer> computerList = PenaltykickService.makeRandomNumberList();
         compareEachPlayer(computerList, player1);
         compareEachPlayer(computerList, player2);
+        printResult(player1, player2);
+    }
+
+    public void printResult(Player player1, Player player2) {
+        outputView.printGameResult();
+        outputView.printPlayer1Result(player1.getResultString());
+        outputView.printPlayer2Result(player2.getResultString());
     }
 
     public void compareEachPlayer(List<Integer> computerList, Player player) {
         player.initResultValue(PenaltykickService.makeResultString(computerList, player.getNumberList()));
     }
 }
+
