@@ -5,7 +5,7 @@ import penaltykick.validation.InputValidation;
 import java.util.List;
 import java.util.Scanner;
 
-class InputView {
+public class InputView {
     private static final String INPUT_NUMBER_PLAYER_1 = "플레이어1 숫자 입력";
     private static final String INPUT_NUMBER_PLAYER_2 = "플레이어2 숫자 입력";
 
