@@ -7,8 +7,8 @@ public class SoccerGame {
 	private List<Integer> playerPosition;
 	private GameResult gameResult;
 
-	public SoccerGame() {
-		this.computerPosition = new ComputerPosition().getComputerPosition();
+	public SoccerGame(List<Integer> computerPos) {
+		this.computerPosition = computerPos;
 	}
 
 	public void inputPlayerPosision(String str) {
