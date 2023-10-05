@@ -34,7 +34,7 @@ public class OutputView {
 	}
 
 	public void printClearMessage() {
-		System.out.println(GAME_CLEAR_MESSAGE + "\n"
+		System.out.println("\n" + GAME_CLEAR_MESSAGE + "\n"
 			+ OUTPUT_PLAYER_ONE_MESSAGE + playerOneResult.convertResult + "\n"
 			+ OUTPUT_PLAYER_TWO_MESSAGE + playerTwoResult.convertResult);
 	}
