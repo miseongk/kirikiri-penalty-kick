@@ -10,7 +10,11 @@ public class PenaltykickController {
 
     public void startProgram() {
         outputView.printStartGame();
-        Player player1 = new Player(inputView.inputNumberPlayer1());
-        Player player2 = new Player(inputView.inputNumberPlayer2());
+        try {
+            Player player1 = new Player(inputView.inputNumberPlayer1());
+            Player player2 = new Player(inputView.inputNumberPlayer2());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
