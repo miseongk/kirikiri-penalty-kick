@@ -1,5 +1,8 @@
 package penaltykick.view;
 
+import penaltykick.validation.InputValidation;
+
+import java.util.List;
 import java.util.Scanner;
 
 class InputView {
@@ -8,13 +11,13 @@ class InputView {
 
     Scanner scanner = new Scanner(System.in);
 
-    public String inputNumberPlayer1() {
+    public List<Integer> inputNumberPlayer1() {
         System.out.println(INPUT_NUMBER_PLAYER_1);
-        return scanner.nextLine();
+        return InputValidation.validateInputValue(scanner.nextLine());
     }
-    
-    public String getInputNumberPlayer2() {
+
+    public List<Integer> getInputNumberPlayer2() {
         System.out.println(INPUT_NUMBER_PLAYER_2);
-        return scanner.nextLine();
+        return InputValidation.validateInputValue(scanner.nextLine());
     }
 }
