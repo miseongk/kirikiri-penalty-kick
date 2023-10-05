@@ -1,4 +1,4 @@
-package penaltykick.Utill;
+package penaltykick.utill;
 
 public class Reference {
     public static final String PLAYER_MESSAGE = "플레이어%d : ";
