@@ -43,7 +43,7 @@ public class OutputView {
 			+ OUTPUT_PLAYER_TWO_MESSAGE + playerResultConvert(playerTwoResult.convertResult));
 	}
 
-	private String playerResultConvert(List<Boolean> playerResult) {
+	public String playerResultConvert(List<Boolean> playerResult) {
 		StringBuilder sb = new StringBuilder();
 		for (boolean val : playerResult) {
 			sb.append(resultConvert(val));
