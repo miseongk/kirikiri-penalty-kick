@@ -22,7 +22,7 @@ public class GameService {
 
     private GameService() {}
 
-    public static int countGoal(RoundResult roundResult) {
+    public static int countGoals(RoundResult roundResult) {
         long goalCount = roundResult.getGoalResults().stream()
                 .filter(GoalResult.GOAL::equals)
                 .count();
@@ -30,19 +30,19 @@ public class GameService {
         return Math.toIntExact(goalCount);
     }
 
-    public static RoundResult startRound(List<Integer> BallPosition, String playerName) {
+    public static RoundResult playRound(List<Integer> BallPosition, String playerName) {
         Round round = new Round(keeperPositions, new BallPositions(BallPosition));
 
-        return new RoundResult(round.getGoalResult(), playerName);
+        return new RoundResult(round.getGoalResults(), playerName);
     }
 
     public static Optional<String> getWinner(RoundResult firstRoundResult, RoundResult secondRoundResult) {
-        if (countGoal(firstRoundResult) == countGoal(secondRoundResult)) {
+        if (countGoals(firstRoundResult) == countGoals(secondRoundResult)) {
             return Optional.empty();
         }
 
         return Stream.of(firstRoundResult, secondRoundResult)
-                .max(Comparator.comparingInt(GameService::countGoal))
+                .max(Comparator.comparingInt(GameService::countGoals))
                 .map(RoundResult::getPlayerName);
     }
 }

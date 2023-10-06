@@ -14,7 +14,7 @@ public class Round {
         this.ballPositions = ballPositions;
     }
 
-    public List<GoalResult> getGoalResult() {
+    public List<GoalResult> getGoalResults() {
         return matchPositions().stream()
                 .map(GoalResult::fromPositionMatched)
                 .collect(Collectors.toList());

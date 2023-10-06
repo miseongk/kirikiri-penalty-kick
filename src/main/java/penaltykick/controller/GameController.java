@@ -24,8 +24,8 @@ public class GameController {
     }
 
     private static void determineGameResult(List<Integer> firstBallPositions, List<Integer> secondBallPositions) {
-        RoundResult firstRoundResult = GameService.startRound(firstBallPositions, FIRST_PLAYER_NAME);
-        RoundResult secondRoundResult = GameService.startRound(secondBallPositions, SECOND_PLAYER_NAME);
+        RoundResult firstRoundResult = GameService.playRound(firstBallPositions, FIRST_PLAYER_NAME);
+        RoundResult secondRoundResult = GameService.playRound(secondBallPositions, SECOND_PLAYER_NAME);
 
         printGameResults(firstRoundResult, secondRoundResult);
         printWinner(firstRoundResult, secondRoundResult);
