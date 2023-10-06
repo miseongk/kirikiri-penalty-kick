@@ -30,4 +30,8 @@ public final class PenaltyPositions {
     private PostPosition get(int index) {
         return selectedPositions.get(index);
     }
+
+    public static int getAttemptsCount() {
+        return ATTEMPTS_COUNT;
+    }
 }
