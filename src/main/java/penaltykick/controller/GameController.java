@@ -15,10 +15,7 @@ public class GameController {
     private GameController() {}
 
     public static void playGame() {
-        int attemptsCount = PenaltyPositions.getAttemptsCount();
-
-        System.out.println("패널티 킥 게임을 시작합니다.");
-        System.out.printf("총 %d번의 위치를 입력해주세요.\n", attemptsCount);
+        OutputView.printGameStartMessage(PenaltyPositions.getAttemptsCount());
 
         List<Integer> firstBallPositions = InputView.readBallPositions(FIRST_PLAYER_NAME);
         List<Integer> secondBallPositions = InputView.readBallPositions(SECOND_PLAYER_NAME);

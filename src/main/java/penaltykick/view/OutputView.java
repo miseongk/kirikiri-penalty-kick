@@ -14,6 +14,11 @@ public class OutputView {
 
     private OutputView() {}
 
+    public static void printGameStartMessage(int count) {
+        System.out.println("패널티 킥 게임을 시작합니다.");
+        System.out.printf("총 %d번의 위치를 입력해주세요.\n", count);
+    }
+
     public static void printGameResults(GameResult gameResults) {
         System.out.printf("%s : ", gameResults.getPlayerName());
 
