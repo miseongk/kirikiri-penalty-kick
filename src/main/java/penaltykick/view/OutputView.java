@@ -1,7 +1,7 @@
 package penaltykick.view;
 
-import java.util.List;
 import java.util.Map;
+import penaltykick.domain.GameResult;
 import penaltykick.domain.GoalResult;
 
 public class OutputView {
@@ -14,10 +14,10 @@ public class OutputView {
 
     private OutputView() {}
 
-    public static void printGoalResults(List<GoalResult> goalResults, String name) {
-        System.out.printf("%s : ", name);
+    public static void printGameResults(GameResult gameResults) {
+        System.out.printf("%s : ", gameResults.getPlayerName());
 
-        goalResults.stream()
+        gameResults.getGoalResults().stream()
                 .map(RESULT_SIGN_MAP::get)
                 .forEach(System.out::print);
 
