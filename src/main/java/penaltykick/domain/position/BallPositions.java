@@ -8,7 +8,7 @@ public final class BallPositions {
 
     public BallPositions(List<Integer> selectedPositions) {
         List<PostPosition> ballPositions = selectedPositions.stream()
-                .map(PostPosition::valueOf)
+                .map(PostPosition::fromPosition)
                 .collect(Collectors.toList());
 
         this.ballPositions = new PenaltyPositions(ballPositions);

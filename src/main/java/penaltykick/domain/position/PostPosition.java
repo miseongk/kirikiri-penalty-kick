@@ -13,7 +13,7 @@ public enum PostPosition {
         this.position = position;
     }
 
-    public static PostPosition valueOf(int position) {
+    public static PostPosition fromPosition(int position) {
         return Arrays.stream(values())
                 .filter(v -> v.position == position)
                 .findFirst()
