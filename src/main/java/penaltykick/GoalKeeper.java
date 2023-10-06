@@ -9,5 +9,8 @@ public class GoalKeeper { // Computer
         }
     }
 
+    int goalKeeperGoal(int index){
+        return computer[index];
+    }
 
 }
