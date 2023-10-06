@@ -26,7 +26,7 @@ public class InputView {
 
     private static void validateIsSeparatedNumber(String input) {
         if (!isSeparatedNumber(input)) {
-            throw new IllegalArgumentException(String.format("[ERROR] 공의 위치는 %s로 구분되는 숫자여야 합니다.", DELIMITER));
+            throw new IllegalArgumentException(String.format("[ERROR] 공의 위치는 '%s'로 구분되는 숫자여야 합니다.", DELIMITER));
         }
     }
 
