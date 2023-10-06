@@ -8,4 +8,8 @@ public final class BallPositions {
     public BallPositions(List<PostPosition> ballPositions) {
         this.ballPositions = new PenaltyPositions(ballPositions);
     }
+
+    PenaltyPositions unwrap() {
+        return ballPositions;
+    }
 }
