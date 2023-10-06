@@ -23,4 +23,12 @@ public class OutputView {
 
         System.out.println();
     }
+
+    public static void printWinner(String name) {
+        System.out.printf("%s이(가) 우승했습니다\uD83C\uDF89\n", name);
+    }
+
+    public static void printDraw() {
+        System.out.println("무승부입니다.");
+    }
 }
