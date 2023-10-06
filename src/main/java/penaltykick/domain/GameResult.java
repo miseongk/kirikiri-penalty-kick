@@ -16,9 +16,6 @@ public class GameResult {
 	private int countGoal() {
 		return (int)Stream.iterate(0, i -> i + 1).limit(convertResult.size())
 			.filter(pos -> convertResult.get(pos).equals(true)).count();
-
-		// return (int)Arrays.stream(convertResult.split(""))
-		// 	.filter(pos -> pos.contains(GOAL_SUCCESS)).count();
 	}
 
 	private List<Boolean> convertGameResult(List<Integer> computerPos, List<Integer> playerPos) {
