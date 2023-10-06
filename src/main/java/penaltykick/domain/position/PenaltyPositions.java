@@ -21,7 +21,7 @@ public final class PenaltyPositions {
         }
     }
 
-    public List<Boolean> matchPositions(PenaltyPositions penaltyPositions) {
+    List<Boolean> matchPositions(PenaltyPositions penaltyPositions) {
         return IntStream.range(0, ATTEMPTS_COUNT)
                 .mapToObj(turn -> this.get(turn) == penaltyPositions.get(turn))
                 .collect(Collectors.toList());
