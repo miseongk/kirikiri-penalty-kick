@@ -32,6 +32,7 @@ public class GameController {
     }
 
     private static void printGameResults(GameResult firstGameResult, GameResult secondGameResult) {
+        OutputView.printGameResultMessage();
         OutputView.printGameResults(firstGameResult);
         OutputView.printGameResults(secondGameResult);
     }
