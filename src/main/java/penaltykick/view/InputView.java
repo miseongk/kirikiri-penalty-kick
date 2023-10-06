@@ -12,8 +12,7 @@ public class InputView {
 
     private InputView() {}
 
-    public static List<Integer> readBallPositions(int count, String name) {
-        System.out.printf("총 %d번의 위치를 입력해주세요.\n", count);
+    public static List<Integer> readBallPositions(String name) {
         System.out.printf("%s : ", name);
         String ballPositions = scanner.nextLine();
 
