@@ -2,7 +2,7 @@ package penaltykick.controller;
 
 import java.util.List;
 import java.util.Optional;
-import penaltykick.domain.GameResult;
+import penaltykick.domain.RoundResult;
 import penaltykick.domain.position.PenaltyPositions;
 import penaltykick.service.GameService;
 import penaltykick.view.InputView;
@@ -24,21 +24,21 @@ public class GameController {
     }
 
     private static void determineGameResult(List<Integer> firstBallPositions, List<Integer> secondBallPositions) {
-        GameResult firstGameResult = GameService.startRound(firstBallPositions, FIRST_PLAYER_NAME);
-        GameResult secondGameResult = GameService.startRound(secondBallPositions, SECOND_PLAYER_NAME);
+        RoundResult firstRoundResult = GameService.startRound(firstBallPositions, FIRST_PLAYER_NAME);
+        RoundResult secondRoundResult = GameService.startRound(secondBallPositions, SECOND_PLAYER_NAME);
 
-        printGameResults(firstGameResult, secondGameResult);
-        printWinner(firstGameResult, secondGameResult);
+        printGameResults(firstRoundResult, secondRoundResult);
+        printWinner(firstRoundResult, secondRoundResult);
     }
 
-    private static void printGameResults(GameResult firstGameResult, GameResult secondGameResult) {
+    private static void printGameResults(RoundResult firstRoundResult, RoundResult secondRoundResult) {
         OutputView.printGameResultMessage();
-        OutputView.printGameResults(firstGameResult);
-        OutputView.printGameResults(secondGameResult);
+        OutputView.printRoundResult(firstRoundResult);
+        OutputView.printRoundResult(secondRoundResult);
     }
 
-    private static void printWinner(GameResult firstGameResult, GameResult secondGameResult) {
-        Optional<String> winner = GameService.getWinner(firstGameResult, secondGameResult);
+    private static void printWinner(RoundResult firstRoundResult, RoundResult secondRoundResult) {
+        Optional<String> winner = GameService.getWinner(firstRoundResult, secondRoundResult);
 
         if (winner.isEmpty()) {
             OutputView.printDraw();

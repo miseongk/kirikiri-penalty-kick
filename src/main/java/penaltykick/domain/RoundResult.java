@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class GameResult {
+public class RoundResult {
     private final List<GoalResult> goalResults;
     private final String playerName;
 
-    public GameResult(List<GoalResult> goalResults, String playerName) {
+    public RoundResult(List<GoalResult> goalResults, String playerName) {
         this.goalResults = new ArrayList<>(goalResults);
         this.playerName = playerName;
     }
