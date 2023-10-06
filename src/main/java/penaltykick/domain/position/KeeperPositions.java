@@ -7,7 +7,15 @@ import penaltykick.domain.GoalResult;
 public final class KeeperPositions {
     private final PenaltyPositions keeperPositions;
 
-    public KeeperPositions(List<PostPosition> keeperPositions) {
+    public KeeperPositions(PenaltyPositions penaltyPositions) {
+        this.keeperPositions = penaltyPositions;
+    }
+
+    public KeeperPositions(List<Integer> selectedPositions) {
+        List<PostPosition> keeperPositions = selectedPositions.stream()
+                .map(PostPosition::valueOf)
+                .collect(Collectors.toList());
+
         this.keeperPositions = new PenaltyPositions(keeperPositions);
     }
 
