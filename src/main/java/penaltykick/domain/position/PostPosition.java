@@ -1,4 +1,4 @@
-package penaltykick.domain;
+package penaltykick.domain.position;
 
 import java.util.Arrays;
 

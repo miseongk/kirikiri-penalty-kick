@@ -1,8 +1,6 @@
-package penaltykick.domain;
+package penaltykick.domain.position;
 
 import java.util.List;
-import penaltykick.domain.position.PenaltyPositions;
-import penaltykick.domain.position.PostPosition;
 
 public final class BallPositions {
     private final PenaltyPositions ballPositions;
