@@ -1,5 +1,7 @@
 package penaltykick.view;
 
+import java.util.List;
+
 import penaltykick.domain.GameResult;
 
 public class OutputView {
@@ -11,6 +13,8 @@ public class OutputView {
 	private static final String OUTPUT_PLAYER_TWO_MESSAGE = "플레이어2 : ";
 	private static final String WINNER_PLAYER_ONE_MESSAGE = "플레이어1이(가) 우승했습니다\uD83C\uDF89";
 	private static final String WINNER_PLAYER_TWO_MESSAGE = "플레이어2이(가) 우승했습니다\uD83C\uDF89";
+	private static final String GOAL_SUCCESS = "O";
+	private static final String GOAL_FAIL = "X";
 	private final GameResult playerOneResult;
 	private final GameResult playerTwoResult;
 
@@ -35,8 +39,23 @@ public class OutputView {
 
 	public void printClearMessage() {
 		System.out.println("\n" + GAME_CLEAR_MESSAGE + "\n"
-			+ OUTPUT_PLAYER_ONE_MESSAGE + playerOneResult.convertResult + "\n"
-			+ OUTPUT_PLAYER_TWO_MESSAGE + playerTwoResult.convertResult);
+			+ OUTPUT_PLAYER_ONE_MESSAGE + playerResultConvert(playerOneResult.convertResult) + "\n"
+			+ OUTPUT_PLAYER_TWO_MESSAGE + playerResultConvert(playerTwoResult.convertResult));
+	}
+
+	private String playerResultConvert(List<Boolean> playerResult) {
+		StringBuilder sb = new StringBuilder();
+		for (boolean val : playerResult) {
+			sb.append(resultConvert(val));
+		}
+		return sb.toString();
+	}
+
+	private String resultConvert(boolean playerResultVal) {
+		if (playerResultVal) {
+			return GOAL_SUCCESS;
+		}
+		return GOAL_FAIL;
 	}
 
 	private void printPlayerOneWin() {

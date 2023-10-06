@@ -1,36 +1,35 @@
 package penaltykick.domain;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class GameResult {
-	private static final String GOAL_SUCCESS = "O";
-	private static final String GOAL_FAIL = "X";
 	public final int goalCount;
-	public final String convertResult;
+	public final List<Boolean> convertResult;
 
 	public GameResult(List<Integer> computerPos, List<Integer> playerPos) {
 		this.convertResult = convertGameResult(computerPos, playerPos);
-		this.goalCount = countGoal(computerPos, playerPos);
+		this.goalCount = countGoal();
 	}
 
-	private int countGoal(List<Integer> computerPos, List<Integer> playerPos) {
-		return (int)Arrays.stream(convertResult.split(""))
-			.filter(pos -> pos.contains(GOAL_SUCCESS)).count();
+	private int countGoal() {
+		return (int)Stream.iterate(0, i -> i + 1).limit(convertResult.size())
+			.filter(pos -> convertResult.get(pos).equals(true)).count();
+
+		// return (int)Arrays.stream(convertResult.split(""))
+		// 	.filter(pos -> pos.contains(GOAL_SUCCESS)).count();
 	}
 
-	private String convertGameResult(List<Integer> computerPos, List<Integer> playerPos) {
-		StringBuilder sb = new StringBuilder();
+	private List<Boolean> convertGameResult(List<Integer> computerPos, List<Integer> playerPos) {
+		List<Boolean> convertList = new ArrayList<>();
 		for (int i = 0; i < computerPos.size(); i++) {
-			sb.append(convertProcess(computerPos.get(i), playerPos.get(i)));
+			convertList.add(convertProcess(computerPos.get(i), playerPos.get(i)));
 		}
-		return sb.toString();
+		return convertList;
 	}
 
-	private String convertProcess(int computerPosIndi, int playerPosIndi) {
-		if (computerPosIndi == playerPosIndi) {
-			return GOAL_SUCCESS;
-		}
-		return GOAL_FAIL;
+	private boolean convertProcess(int computerPosVal, int playerPosVal) {
+		return computerPosVal == playerPosVal;
 	}
 }
