@@ -9,23 +9,25 @@ import static penaltykick.utill.Reference.INPUT_COUNT;
 
 public class Validation {
 
-    public void checkRange(List<Integer> list) {
+    public boolean checkRange(List<Integer> list) {
         for (int n : list)
             if (n > 3 || n < 1) {
-                throw new IllegalArgumentException(ERROR_MESSAGE);
+                return false;
             }
+        return true;
     }
 
-    public void checkLength(List<Integer> list) {
-        if (list.size() != INPUT_COUNT) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
-        }
+    public boolean checkLength(List<Integer> list) {
+
+        return list.size() == INPUT_COUNT;
     }
 
-    public void isValid(List<Player> playerInput) {
+    public boolean isValid(List<Player> playerInput) {
         for (Player player : playerInput) {
-            checkRange(player.getDirectionList());
-            checkLength(player.getDirectionList());
+            if(!checkRange(player.getDirectionList()) || !checkLength(player.getDirectionList())){
+                return false;
+            }
         }
+        return true;
     }
 }
