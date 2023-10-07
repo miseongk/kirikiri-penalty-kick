@@ -1,6 +1,5 @@
 package penaltykick.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -24,7 +23,7 @@ public class Player {
     private void validateKickPosition(List<Integer> penaltyKickPosition) {
         for (int position : penaltyKickPosition) {
             if (position < 1 || position > 3) {
-                throw new IllegalArgumentException("패널티 킥 위치는 1이상 3이하의 정수여야 합니다.");
+                throw new IllegalArgumentException();
             }
         }
     }

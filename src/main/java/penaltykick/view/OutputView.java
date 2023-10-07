@@ -6,10 +6,11 @@ public class OutputView {
 
     public void printGameStart() {
         System.out.println("패널티 킥 게임을 시작합니다.");
+        System.out.println("총 5번의 패널티 킥 위치를 입력해주세요.");
     }
 
     public void printGameResultTitle() {
-        System.out.println("게임 결과");
+        System.out.println("\n게임 결과");
     }
 
     public void printPlayerPenaltyKickResult(Player player) {
