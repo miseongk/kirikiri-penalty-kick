@@ -25,7 +25,7 @@ public class GameController {
         Player player2 = progressPenaltyKickPositionSetting(PLAYER_NUMBER_TWO);
         GoalKeeper goalKeeper = new GoalKeeper();
 
-        progressPenaltyKick();
+        progressPenaltyKick(player1, player2, goalKeeper);
         progressMatchResult();
     }
 
@@ -34,7 +34,9 @@ public class GameController {
         return new Player(playerNum, penaltyKickPosition);
     }
 
-    private void progressPenaltyKick() {
+    private void progressPenaltyKick(Player player1, Player player2, GoalKeeper goalKeeper) {
+        player1.progressPenaltyKick(goalKeeper);
+        player2.progressPenaltyKick(goalKeeper);
     }
 
     private void progressMatchResult() {
