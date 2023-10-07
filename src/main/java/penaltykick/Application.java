@@ -1,8 +1,12 @@
 package penaltykick;
 
-public class Application {
+import java.io.IOException;
 
-    public static void main(String[] args) {
-        // TODO: 프로그램 구현
-    }
+import penaltykick.controller.SoccerGameController;
+
+public class Application {
+	public static void main(String[] args) throws IOException {
+		SoccerGameController game = new SoccerGameController();
+		game.startSoccerGame();
+	}
 }
