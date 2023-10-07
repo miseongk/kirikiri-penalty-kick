@@ -32,16 +32,13 @@ public class PenaltyKickController {
 
 		OutputView.printFirstPlayerInputMessage();
 		Player firstPlayer = createPlayer();
-
 		OutputView.printSecondPlayerInputMessage();
 		Player secondPlayer = createPlayer();
 
-		String firstPlayerResult = calculate(computerNumbers, firstPlayer);
-		String secondPlayerResult = calculate(computerNumbers, secondPlayer);
+		List<Boolean> firstPlayerResult = calculate(computerNumbers, firstPlayer);
+		List<Boolean> secondPlayerResult = calculate(computerNumbers, secondPlayer);
 
 		printGameResult(firstPlayerResult, secondPlayerResult);
-
-		createWinner(firstPlayerResult, secondPlayerResult);
 	}
 
 	private Computer createComputerNumber() {
@@ -49,7 +46,7 @@ public class PenaltyKickController {
 		return generateComputer();
 	}
 
-	public Computer generateComputer() {
+	private Computer generateComputer() {
 		List<Integer> computerNumber = generateRandomNumber();
 		return new Computer(computerNumber);
 	}
@@ -67,17 +64,18 @@ public class PenaltyKickController {
 		return new Player(playerNumbers);
 	}
 
-	private static void printGameResult(String firstPlayerResult, String secondPlayerResult) {
+	private void printGameResult(List<Boolean> firstPlayerResult, List<Boolean> secondPlayerResult) {
 		OutputView.printGameResult();
-		OutputView.printFirstPlayerResult(firstPlayerResult);
-		OutputView.printSecondPlayerResult(secondPlayerResult);
+		OutputView.printCalculateResult(firstPlayerResult);
+		OutputView.printCalculateResult(secondPlayerResult);
+		createWinner(firstPlayerResult, secondPlayerResult);
 	}
 
-	private String calculate(Computer computerNumbers, Player Player) {
-		return penaltyKickReferee.calculateResult(computerNumbers, Player);
+	private List<Boolean> calculate(Computer computer, Player player) {
+		return computer.calculateResult(player);
 	}
 
-	private void createWinner(String firstPlayerResult, String secondPlayerResult) {
+	private void createWinner(List<Boolean> firstPlayerResult, List<Boolean> secondPlayerResult) {
 		long firstPlayerCount = penaltyKickReferee.resultCount(firstPlayerResult);
 		long secondPlayerCount = penaltyKickReferee.resultCount(secondPlayerResult);
 		OutputView.printWinner(firstPlayerCount, secondPlayerCount);
