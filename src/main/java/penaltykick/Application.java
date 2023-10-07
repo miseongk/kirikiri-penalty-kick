@@ -14,6 +14,19 @@ public class Application {
         System.out.println();
     }
 
+    // OXList를 만드는 메서드
+    private static ArrayList<String> OXListGenerator(ArrayList<Integer> playerNumberList, ArrayList<Integer> computerNumberList) {
+        ArrayList<String> OXList = new ArrayList<>(); // 게임마다 초기화
+        for (int i = 0; i < 5; i++) {
+            if (playerNumberList.get(i).equals(computerNumberList.get(i))) {
+                OXList.add("O");
+            } else {
+                OXList.add("X");
+            }
+        }
+        return OXList;
+    }
+
 
 
 
@@ -33,5 +46,8 @@ public class Application {
         printArrayList(player1Number);
         System.out.println("플레이어2: ");
         printArrayList(player2Number);
+
+        ArrayList<String> player1_OX_List = OXListGenerator(player1Number,computerNumber);
+        ArrayList<String> player2_OX_List = OXListGenerator(player2Number,computerNumber);
     }
 }
