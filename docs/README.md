@@ -5,6 +5,8 @@
   - "플레이어" + 숫자로 초기화한다.
 - 패널티 킥 위치
   - 패널티 킥의 위칫값들을 저장하는 리스트
+- 패널티킥 결과
+  - 패널티 킥의 결과값들을 저장하는 문자열
 - 점수
   - 패널티 킥 진행 후 얻는 점수
 - 이름과 패널티 킥 위치를 생성자에서 초기화한다. - ``Player``
@@ -38,6 +40,9 @@
 
 ## 게임 출력 화면 - OutputView
 > 게임 화면을 출력하는 뷰 클래스
+- 게임 시작 화면을 출력한다. - ``printGameStart``
+- 게임 종료 알림 화면을 출력한다. - ``printGameResultTitle``
 - 플레이어의 패널티킥 결과를 출력한다. - ``printPlayerPenaltyKickResult``
-- 승부 결과를 출력한다. - ``printMatchResult``
+- 승리했을 때 결과를 출력한다. - ``printMatchWinner``
+- 무승부했을 때 결과를 출력한다. - ``printMatchDraw``
 </br>
