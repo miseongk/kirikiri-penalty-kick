@@ -10,14 +10,14 @@ public class Player {
 
     private String name;
     private List<Integer> penaltyKickPosition;
-    private List<String> penaltyKickResult;
+    private String penaltyKickResult;
     private int score;
 
     public Player(int playerNum, List<Integer> penaltyKickPosition) {
         validateKickPosition(penaltyKickPosition);
         this.name = "플레이어" + playerNum;
         this.penaltyKickPosition = penaltyKickPosition;
-        this.penaltyKickResult = new ArrayList<>();
+        this.penaltyKickResult = "";
         this.score = 0;
     }
 
@@ -34,12 +34,12 @@ public class Player {
 
         for (int i = 0; i < 5; i++) {
             if (penaltyKickPosition.get(i) != goalKeeperDefensePosition.get(i)) {
-                penaltyKickResult.add(KICK_SUCCESS);
+                penaltyKickResult += KICK_SUCCESS;
                 score++;
             }
 
-            if (penaltyKickPosition.get(i) != goalKeeperDefensePosition.get(i)) {
-                penaltyKickResult.add(KICK_FAIL);
+            if (penaltyKickPosition.get(i) == goalKeeperDefensePosition.get(i)) {
+                penaltyKickResult += KICK_FAIL;
             }
         }
     }
@@ -61,7 +61,7 @@ public class Player {
         return penaltyKickPosition;
     }
 
-    public List<String> getPenaltyKickResult() {
+    public String getPenaltyKickResult() {
         return penaltyKickResult;
     }
 
