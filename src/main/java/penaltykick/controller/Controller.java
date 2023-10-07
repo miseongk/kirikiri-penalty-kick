@@ -16,7 +16,7 @@ public class Controller {
     public void run(){
         startGame();
         getPlayerNum();
-//        getGoalkeeperNum();
+        getGoalkeeperNum();
 //        showGameResult();
     }
 
@@ -35,5 +35,10 @@ public class Controller {
     private ArrayList<Integer> getInputPlayerNum() {
         InputMessage inputMessage = new InputMessage();
         return Util.stringToIntegerArrayList(inputMessage.inputNumber());
+    }
+
+    private void getGoalkeeperNum() {
+        goalkeeper = new Goalkeeper();
+
     }
 }
