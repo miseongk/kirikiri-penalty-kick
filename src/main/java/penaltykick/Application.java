@@ -49,6 +49,19 @@ public class Application {
         return 0;
     }
 
+    // 승자를 출력하는 메소드
+    private static void printWinner(int player1_O_count, int player2_O_count) {
+        int result = winnerJudgement(player1_O_count, player2_O_count);
+        if (result == 1) {
+            System.out.println("플레이어 1이(가) 우승했습니다.");
+        } else if (result == 2) {
+            System.out.println("플레이어 2이(가) 승리했습니다.");
+        }
+        else if (result == 3){
+            System.out.println("무승부입니다.");
+        }
+    }
+
 
 
 
@@ -77,7 +90,12 @@ public class Application {
 
         winnerJudgement(player1_O_counts, player2_O_counts);
 
+        System.out.println("게임 결과");
+        System.out.print("플레이어1: ");
+        printArrayList(player1_OX_List);
+        System.out.print("플레이어2: ");
+        printArrayList(player2_OX_List);
 
-
+        printWinner(player1_O_counts,player2_O_counts);
     }
 }
