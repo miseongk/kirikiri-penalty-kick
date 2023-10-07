@@ -4,8 +4,12 @@ import java.util.List;
 
 public class Player {
 
+    private final String KICK_SUCCESS = "O";
+    private final String KICK_FAIL = "X";
+
     private String name;
     private List<Integer> penaltyKickPosition;
+    private List<String> penaltyKickResult;
     private int score;
 
     public Player(int playerNum, List<Integer> penaltyKickPosition) {
@@ -28,7 +32,12 @@ public class Player {
 
         for (int i = 0; i < 5; i++) {
             if (penaltyKickPosition.get(i) != goalKeeperDefensePosition.get(i)) {
+                penaltyKickResult.add(KICK_SUCCESS);
                 score++;
+            }
+
+            if (penaltyKickPosition.get(i) != goalKeeperDefensePosition.get(i)) {
+                penaltyKickResult.add(KICK_FAIL);
             }
         }
     }
