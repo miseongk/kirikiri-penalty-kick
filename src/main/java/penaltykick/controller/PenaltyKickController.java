@@ -1,8 +1,10 @@
 package penaltykick.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import penaltykick.domain.Computer;
+import penaltykick.domain.NumberGenerator;
 import penaltykick.domain.PenaltyKickReferee;
 import penaltykick.domain.Player;
 import penaltykick.view.InputView;
@@ -10,10 +12,14 @@ import penaltykick.view.OutputView;
 
 public class PenaltyKickController {
 
-	private final PenaltyKickReferee penaltyKickReferee;
+	private static final int REPEAT_NUMBER = 5;
 
-	public PenaltyKickController(PenaltyKickReferee penaltyKickReferee) {
+	private final PenaltyKickReferee penaltyKickReferee;
+	private final NumberGenerator numberGenerator;
+
+	public PenaltyKickController(PenaltyKickReferee penaltyKickReferee, NumberGenerator numberGenerator) {
 		this.penaltyKickReferee = penaltyKickReferee;
+		this.numberGenerator = numberGenerator;
 	}
 
 	public void run() {
@@ -40,12 +46,25 @@ public class PenaltyKickController {
 
 	private Computer createComputerNumber() {
 		OutputView.printInputMessage();
-		return penaltyKickReferee.generateComputer();
+		return generateComputer();
+	}
+
+	public Computer generateComputer() {
+		List<Integer> computerNumber = generateRandomNumber();
+		return new Computer(computerNumber);
+	}
+
+	private List<Integer> generateRandomNumber() {
+		List<Integer> computerNumber = new ArrayList<>();
+		for (int i = 0; i < REPEAT_NUMBER; i++) {
+			computerNumber.add(numberGenerator.generate());
+		}
+		return computerNumber;
 	}
 
 	private Player createPlayer() {
 		List<Integer> playerNumbers = InputView.readPlayerNumber();
-		return penaltyKickReferee.generatePlayer(playerNumbers);
+		return new Player(playerNumbers);
 	}
 
 	private static void printGameResult(String firstPlayerResult, String secondPlayerResult) {
