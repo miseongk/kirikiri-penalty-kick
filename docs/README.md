@@ -7,6 +7,7 @@
     - [x] 1에서 3 사이의 숫자를 입력해야 한다. (숫자 사이는 공백으로 구분한다.)
     - [x] 빈칸이 입력되면 IllegalArgumentException 을 발생한다.
     - [x] 숫자가 아닌 값이 들어오면 IllegalArgumentException 을 발생한다.
+    - [x] 5개의 숫자가 입력이 되지 않았으면 IllegalArgumentException 을 발생한다.
 - [x] 플레이어 2의 위치를 5번 입력한다.
     - [x] 1에서 3 사이의 숫자를 입력해야 한다. (숫자 사이는 공백으로 구분한다.)
     - [x] 빈칸이 입력되면 IllegalArgumentException 을 발생한다.
