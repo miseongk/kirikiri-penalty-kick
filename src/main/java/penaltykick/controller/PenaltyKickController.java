@@ -60,8 +60,13 @@ public class PenaltyKickController {
 	}
 
 	private Player createPlayer() {
-		List<Integer> playerNumbers = InputView.readPlayerNumber();
-		return new Player(playerNumbers);
+		try {
+			List<Integer> playerNumbers = InputView.readPlayerNumber();
+			return new Player(playerNumbers);
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return createPlayer();
+		}
 	}
 
 	private void printGameResult(List<Boolean> firstPlayerResult, List<Boolean> secondPlayerResult) {
