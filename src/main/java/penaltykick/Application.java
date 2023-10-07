@@ -38,6 +38,17 @@ public class Application {
         return count;
     }
 
+    // 승자를 판단하는 메소드
+    protected static int winnerJudgement(int player1_O_count, int player2_O_count) {
+        if (player1_O_count > player2_O_count) {
+            return 1; // 플레이어 1이 승리
+        } else if (player1_O_count < player2_O_count) {
+            return 2; // 플레이어 2가 승리
+        }
+        // 여기까지 도달했다면 무승부
+        return 0;
+    }
+
 
 
 
@@ -63,6 +74,8 @@ public class Application {
 
         int player1_O_counts = OCounter(player1_OX_List);
         int player2_O_counts = OCounter(player2_OX_List);
+
+        winnerJudgement(player1_O_counts, player2_O_counts);
 
 
 
