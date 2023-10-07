@@ -21,12 +21,14 @@ public class GameController {
     }
 
     public void play() {
+        outputView.printGameStart();
+
         Player player1 = progressPenaltyKickPositionSetting(PLAYER_NUMBER_ONE);
         Player player2 = progressPenaltyKickPositionSetting(PLAYER_NUMBER_TWO);
         GoalKeeper goalKeeper = new GoalKeeper();
 
         progressPenaltyKick(player1, player2, goalKeeper);
-        progressMatchResult();
+        progressMatchResult(player1, player2);
     }
 
     private Player progressPenaltyKickPositionSetting(int playerNum) {
@@ -39,6 +41,21 @@ public class GameController {
         player2.progressPenaltyKick(goalKeeper);
     }
 
-    private void progressMatchResult() {
+    private void progressMatchResult(Player player1, Player player2) {
+        outputView.printGameResultTitle();
+        outputView.printPlayerPenaltyKickResult(player1);
+        outputView.printPlayerPenaltyKickResult(player2);
+
+        if (player1.isVictory(player2)) {
+            outputView.printMatchWinner(player1);
+            return;
+        }
+
+        if (player2.isVictory(player1)) {
+            outputView.printMatchWinner(player2);
+            return;
+        }
+
+        outputView.printMatchDraw();
     }
 }
