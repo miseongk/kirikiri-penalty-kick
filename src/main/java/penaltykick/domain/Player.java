@@ -17,6 +17,7 @@ public class Player {
     public void setResult(String result) {
         this.result = result;
     }
+
     public String getResult() {
         return this.result;
     }
@@ -30,7 +31,7 @@ public class Player {
 
     }
 
-    public ArrayList<Integer> getPlayerNumber(){
+    public ArrayList<Integer> getPlayerNumber() {
         return this.playerNumber;
     }
 
