@@ -1,5 +1,6 @@
 package penaltykick.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -16,6 +17,7 @@ public class Player {
         validateKickPosition(penaltyKickPosition);
         this.name = "플레이어" + playerNum;
         this.penaltyKickPosition = penaltyKickPosition;
+        this.penaltyKickResult = new ArrayList<>();
         this.score = 0;
     }
 
@@ -57,6 +59,10 @@ public class Player {
 
     public List<Integer> getPenaltyKickPosition() {
         return penaltyKickPosition;
+    }
+
+    public List<String> getPenaltyKickResult() {
+        return penaltyKickResult;
     }
 
     public int getScore() {
