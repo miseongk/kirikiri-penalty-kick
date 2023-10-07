@@ -9,8 +9,8 @@ import java.util.List;
 
 public class GameController {
 
-    private final int PLAYER_NUMBER_ONE = 1;
-    private final int PLAYER_NUMBER_TWO = 2;
+    private final static int PLAYER_NUMBER_ONE = 1;
+    private final static int PLAYER_NUMBER_TWO = 2;
 
     private InputView inputView;
     private OutputView outputView;

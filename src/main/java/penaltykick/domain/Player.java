@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Player {
 
-    private final String KICK_SUCCESS = "O";
-    private final String KICK_FAIL = "X";
+    private final static String KICK_SUCCESS = "O";
+    private final static String KICK_FAIL = "X";
 
     private String name;
     private List<Integer> penaltyKickPosition;
