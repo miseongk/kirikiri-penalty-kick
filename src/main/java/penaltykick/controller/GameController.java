@@ -5,7 +5,12 @@ import penaltykick.domain.Player;
 import penaltykick.view.InputView;
 import penaltykick.view.OutputView;
 
+import java.util.List;
+
 public class GameController {
+
+    private final int PLAYER_NUMBER_ONE = 1;
+    private final int PLAYER_NUMBER_TWO = 2;
 
     private InputView inputView;
     private OutputView outputView;
@@ -16,15 +21,17 @@ public class GameController {
     }
 
     public void play() {
-        Player player1 = progressPenaltyKickPositionSetting();
-        Player player2 = progressPenaltyKickPositionSetting();
+        Player player1 = progressPenaltyKickPositionSetting(PLAYER_NUMBER_ONE);
+        Player player2 = progressPenaltyKickPositionSetting(PLAYER_NUMBER_TWO);
         GoalKeeper goalKeeper = new GoalKeeper();
 
         progressPenaltyKick();
         progressMatchResult();
     }
 
-    private Player progressPenaltyKickPositionSetting() {
+    private Player progressPenaltyKickPositionSetting(int playerNum) {
+        List<Integer> penaltyKickPosition = inputView.readPenaltyKickPosition(playerNum);
+        return new Player(playerNum, penaltyKickPosition);
     }
 
     private void progressPenaltyKick() {
