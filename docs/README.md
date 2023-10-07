@@ -11,7 +11,7 @@
   - 예외 처리 - ``validateKickPosition``
     - 🚫 패널티 킥 위치가 1 미만 3 초과인 경우
 - 패널티 킥 진행 - ``progressPenaltyKick``
-- 승리 여부 확인 - ``compateToCompetitor``
+- 승리 여부 확인 - ``compareToCompetitor``
 </br>
 
 ## 골키퍼 정보 - GoalKeeper
