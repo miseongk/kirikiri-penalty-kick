@@ -8,8 +8,6 @@ public class Application {
     static Integer[] goalkeeperKick = new Integer[5];
 
     public static void main(String[] args) throws IOException {
-        String result1;
-        String result2;
         Integer[] player1Kick = new Integer[5];
         Integer[] player2Kick = new Integer[5];
 
@@ -22,7 +20,10 @@ public class Application {
 
         System.out.println("");
         System.out.println("게임 결과");
-
+        String resultOfPlayer1 = findOutIfIsGoal(player1Kick);
+        String resultOfPlayer2 = findOutIfIsGoal(player2Kick);
+        System.out.print("플레이어1 : " + resultOfPlayer1 + "\n");
+        System.out.print("플레이어2 : " + resultOfPlayer2 + "\n");
     }
 
     /**
@@ -89,7 +90,17 @@ public class Application {
     /**
      * 골 여부 구하기
      */
-    public static void findOutIfIsGoal() {
+    public static String findOutIfIsGoal(Integer[] playerKick) {
+        StringBuilder result = new StringBuilder();
 
+        for (int i = 0; i < 5; i++) {
+            if (goalkeeperKick[i] == playerKick[i]) {
+                result.append("X");
+            } else {
+                result.append("O");
+            }
+        }
+
+        return result.toString();
     }
 }
