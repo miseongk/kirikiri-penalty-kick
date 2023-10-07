@@ -27,6 +27,17 @@ public class Application {
         return OXList;
     }
 
+    // O의 개수를 카운트하는 메소드
+    private static int OCounter(ArrayList<String> playerNumberList) {
+        int count = 0;
+        for (int i = 0; i < playerNumberList.size(); i++) {
+            if (playerNumberList.get(i).equals("O")) {
+                count = count + 1;
+            }
+        }
+        return count;
+    }
+
 
 
 
@@ -49,5 +60,11 @@ public class Application {
 
         ArrayList<String> player1_OX_List = OXListGenerator(player1Number,computerNumber);
         ArrayList<String> player2_OX_List = OXListGenerator(player2Number,computerNumber);
+
+        int player1_O_counts = OCounter(player1_OX_List);
+        int player2_O_counts = OCounter(player2_OX_List);
+
+
+
     }
 }
