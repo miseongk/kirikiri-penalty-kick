@@ -1,7 +1,5 @@
 package penaltykick.view;
 
-import penaltykick.domain.Player;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,7 +10,6 @@ public class InputView {
     private Scanner scanner = new Scanner(System.in);
 
     public List<Integer> readPenaltyKickPosition(int playerNum) {
-        System.out.println("총 5번의 패널티 킥 위치를 입력해주세요.");
         System.out.print("플레이어" + playerNum + " : ");
         String inputString = scanner.nextLine();
         validatePenaltyKickPosition(inputString);
@@ -33,6 +30,10 @@ public class InputView {
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException();
             }
+        }
+
+        if (st.hasMoreTokens()) {
+            throw new IllegalArgumentException();
         }
     }
 
