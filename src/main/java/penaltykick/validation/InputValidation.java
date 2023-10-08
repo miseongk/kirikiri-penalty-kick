@@ -32,20 +32,28 @@ public class InputValidation {
     private static List<Integer> validateIsNumber(String[] stringArr) {
         List<Integer> inputNumber = new ArrayList<>();
         try {
-            for (String s : stringArr) {
-                inputNumber.add(Integer.parseInt(s));
-            }
+            checkIsNumber(stringArr, inputNumber);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ERROR + NOT_NUMBER);
         }
         return inputNumber;
     }
 
+    private static void checkIsNumber(String[] stringArr, List<Integer> inputNumber) {
+        for (String s : stringArr) {
+            inputNumber.add(Integer.parseInt(s));
+        }
+    }
+
     private static void validateBetweenOneAndThree(List<Integer> inputNumber) {
         for (int i : inputNumber) {
-            if (i < START_SELECT_NUMBER || END_SELECT_NUMBER < i) {
-                throw new IllegalArgumentException(ERROR + NOT_BETWEEN_ONE_AND_THREE);
-            }
+            isBetweenOneAndThree(i);
+        }
+    }
+
+    private static void isBetweenOneAndThree(int i) {
+        if(i < START_SELECT_NUMBER || END_SELECT_NUMBER < i) {
+            throw new IllegalArgumentException(ERROR + NOT_BETWEEN_ONE_AND_THREE);
         }
     }
 }
