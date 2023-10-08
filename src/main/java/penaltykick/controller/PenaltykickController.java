@@ -16,11 +16,30 @@ public class PenaltykickController {
         outputView.printStartGame();
         outputView.printInputFiveNumber();
         try {
-            Player player1 = new Player(inputView.inputNumberPlayer1());
-            Player player2 = new Player(inputView.inputNumberPlayer2());
+            Player player1 = initPlayer1();
+            Player player2 = initPlayer2();
             comparePlayer(player1, player2);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
+            startProgram();
+        }
+    }
+
+    public Player initPlayer1() {
+        try {
+            return new Player(inputView.inputNumberPlayer1());
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return initPlayer1();
+        }
+    }
+
+    public Player initPlayer2() {
+        try {
+            return new Player(inputView.inputNumberPlayer2());
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return initPlayer2();
         }
     }
 
