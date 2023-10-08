@@ -7,9 +7,14 @@ public class GoalKeeper {
 	public ArrayList<Integer> computerRandomNumberGenerator(int count) {
 		ArrayList<Integer> computerNumberList = new ArrayList<>();
 		for (int i = 0; i < count; i++) {
-			int randomVal = (int) (Math.random() * 3 + 1);
-			computerNumberList.add(randomVal);
+			addRandomNumToList(computerNumberList);
 		}
 		return computerNumberList;
 	}
+
+	public void addRandomNumToList(ArrayList<Integer> computerNumberList) {
+		int randomVal = (int) (Math.random() * 3 + 1);
+		computerNumberList.add(randomVal);
+	}
 }
+
