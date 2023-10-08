@@ -6,8 +6,6 @@ import penaltykick.service.PenaltykickService;
 import penaltykick.view.InputView;
 import penaltykick.view.OutputView;
 
-import java.util.List;
-
 public class PenaltykickController {
 
     InputView inputView = new InputView();

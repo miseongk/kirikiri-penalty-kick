@@ -30,7 +30,6 @@ public class Player {
         }
     }
 
-
     public String getResultString() {
         return resultString;
     }
