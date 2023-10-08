@@ -7,6 +7,7 @@
     - [x] 1에서 3 사이의 숫자를 입력해야 한다. (숫자 사이는 공백으로 구분한다.)
     - [x] 빈칸이 입력되면 IllegalArgumentException 을 발생한다.
     - [x] 숫자가 아닌 값이 들어오면 IllegalArgumentException 을 발생한다.
+    - [x] 5개의 숫자가 입력이 되지 않았으면 IllegalArgumentException 을 발생한다.
 - [x] 플레이어 2의 위치를 5번 입력한다.
     - [x] 1에서 3 사이의 숫자를 입력해야 한다. (숫자 사이는 공백으로 구분한다.)
     - [x] 빈칸이 입력되면 IllegalArgumentException 을 발생한다.
@@ -18,3 +19,9 @@
 - [x] 우승자를 출력한다.
 - [x] 만약 IllegalArgumentException이 발생되면 애플리케이션은 종료되어야 한다.
 
+## 추가 요구 사항
+
+- [x] Rule → 하나의 메소드는 15줄을 넘기면 안된다.
+- [x] depth는 1를 넘기면 안된다.
+- [x] 변경 가능성이 있는 매직 넘버는 상수로 뺀다.
+- [x] 사용자가 잘못 입력했을 시 재입력을 받는다

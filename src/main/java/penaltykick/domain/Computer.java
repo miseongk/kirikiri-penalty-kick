@@ -1,5 +1,6 @@
 package penaltykick.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Computer {
@@ -19,11 +20,19 @@ public class Computer {
 		}
 	}
 
-	public boolean checkNumberByPlayer(int playerNumber, int i) {
-		return computerNumbers.get(i) == playerNumber;
+	public List<Boolean> calculateResult(Player player) {
+		List<Boolean> result = new ArrayList<>();
+		for (int i = 0; i < computerNumbers.size(); i++) {
+			isSameComputerByPlayer(player, result, i);
+		}
+		return result;
 	}
 
-	public int getComputerNumberSize() {
-		return computerNumbers.size();
+	private void isSameComputerByPlayer(Player player, List<Boolean> result, int i) {
+		if (computerNumbers.get(i) == player.getPlayerNumberByIndex(i)) {
+			result.add(true);
+			return;
+		}
+		result.add(false);
 	}
 }

@@ -1,8 +1,12 @@
 package penaltykick.view;
 
+import java.util.List;
+
 public class OutputView {
 
 	private static final String LINE_BREAK = System.lineSeparator();
+	private static final String SAME = "O";
+	private static final String NOT_SAME = "X";
 
 	private OutputView() {
 	}
@@ -28,12 +32,20 @@ public class OutputView {
 		System.out.println("게임 결과");
 	}
 
-	public static void printFirstPlayerResult(String result) {
-		System.out.println("플레이어1 : " + result);
+	public static void printCalculateResult(List<Boolean> results) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (boolean result : results) {
+			checkSame(stringBuilder, result);
+		}
+		System.out.println("플레이어1 : " + stringBuilder);
 	}
 
-	public static void printSecondPlayerResult(String result) {
-		System.out.println("플레이어2 : " + result);
+	private static void checkSame(StringBuilder stringBuilder, boolean result) {
+		if (result) {
+			stringBuilder.append(SAME);
+			return;
+		}
+		stringBuilder.append(NOT_SAME);
 	}
 
 	public static void printWinner(long firstPlayerResult, long secondPlayerResult) {
