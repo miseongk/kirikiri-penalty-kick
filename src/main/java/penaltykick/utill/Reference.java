@@ -4,6 +4,8 @@ public class Reference {
     public static final String PLAYER_MESSAGE = "플레이어%d : ";
     public static final int INPUT_COUNT = 5;
     public static final int PLAYER_COUNT = 2;
+    public static final int MAXIMUM_NUMBER = 3;
+    public static final int MINIMUM_NUMBER = 1;
     public static final String START_GAME_MSG = "패널티 킥 게임을 시작합니다.";
     public static final String POSITION_MESSAGE = "총 %d번의 위치를 입력해주세요.\n";
     public static final String TIE_MESSAGE = "무승부입니다";

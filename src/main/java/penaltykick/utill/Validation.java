@@ -4,28 +4,28 @@ import penaltykick.domain.Player;
 
 import java.util.List;
 
-import static penaltykick.utill.Reference.ERROR_MESSAGE;
-import static penaltykick.utill.Reference.INPUT_COUNT;
+import static penaltykick.utill.Reference.*;
 
 public class Validation {
 
-    public void checkRange(List<Integer> list) {
+    public boolean isValidNumber(List<Integer> list) {
         for (int n : list)
-            if (n > 3 || n < 1) {
-                throw new IllegalArgumentException(ERROR_MESSAGE);
+            if (n > MAXIMUM_NUMBER || n < MINIMUM_NUMBER) {
+                return false;
             }
+        return true;
+    }
+    public boolean isValidLength(List<Integer> list) {
+
+        return list.size() == INPUT_COUNT;
     }
 
-    public void checkLength(List<Integer> list) {
-        if (list.size() != INPUT_COUNT) {
-            throw new IllegalArgumentException(ERROR_MESSAGE);
-        }
-    }
-
-    public void isValid(List<Player> playerInput) {
+    public boolean isValid(List<Player> playerInput) {
         for (Player player : playerInput) {
-            checkRange(player.getDirectionList());
-            checkLength(player.getDirectionList());
+            if(!isValidNumber(player.getDirectionList()) || !isValidLength(player.getDirectionList())){
+                return false;
+            }
         }
+        return true;
     }
 }

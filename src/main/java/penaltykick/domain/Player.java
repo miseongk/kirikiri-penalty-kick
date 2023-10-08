@@ -14,15 +14,19 @@ public class Player {
     public Player(List<Integer> list){
             this.directionList = list;
     }
-    public void calculatePoint( List<Integer> computerDirection) {
+    public void calculatePoint(List<Integer> computerDirection) {
         for(int i = 0 ; i < INPUT_COUNT; i++){
-            if(directionList.get(i).equals(computerDirection.get(i))) {
-                this.point++;
-                this.resultList.add(GOAL_SIGN);
-            }else {
-                this.resultList.add(NO_GOAL_SIGN);
-            }
+            addResultList(i,computerDirection.get(i));
         }
+    }
+    public void addResultList(int index , int computerDirectionNumber){
+        if(directionList.get(index) != computerDirectionNumber) {
+            this.point++;
+            this.resultList.add(GOAL_SIGN);
+        }else {
+            this.resultList.add(NO_GOAL_SIGN);
+        }
+
     }
     public int getPoint(){
         return this.point;
