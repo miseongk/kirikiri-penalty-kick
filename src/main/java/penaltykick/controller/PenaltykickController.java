@@ -1,13 +1,13 @@
 package penaltykick.controller;
 
 import penaltykick.model.Player;
+import penaltykick.model.Game;
 import penaltykick.service.PenaltykickService;
 import penaltykick.view.InputView;
 import penaltykick.view.OutputView;
 
-import java.util.List;
-
 public class PenaltykickController {
+
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
@@ -15,23 +15,47 @@ public class PenaltykickController {
         outputView.printStartGame();
         outputView.printInputFiveNumber();
         try {
-            Player player1 = new Player(inputView.inputNumberPlayer1());
-            Player player2 = new Player(inputView.inputNumberPlayer2());
-            comparePlayer(player1, player2);
+            Player player1 = initPlayer1();
+            Player player2 = initPlayer2();
+            Game game = initGame();
+            comparePlayer(player1, player2, game);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
+            startProgram();
         }
     }
 
-    public void comparePlayer(Player player1, Player player2) {
-        List<Integer> computerList = PenaltykickService.makeRandomNumberList();
-        compareEachPlayer(computerList, player1);
-        compareEachPlayer(computerList, player2);
+    public Player initPlayer1() {
+        try {
+            return new Player(inputView.inputNumberPlayer1());
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return initPlayer1();
+        }
+    }
+
+    public Player initPlayer2() {
+        try {
+            return new Player(inputView.inputNumberPlayer2());
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return initPlayer2();
+        }
+    }
+
+    public Game initGame() {
+        return new Game(PenaltykickService.makeRandomNumberList());
+    }
+
+    public void comparePlayer(Player player1, Player player2, Game game) {
+        compareEachPlayer(player1, game);
+        compareEachPlayer(player2, game);
         printResult(player1, player2);
     }
 
-    public void compareEachPlayer(List<Integer> computerList, Player player) {
-        player.initResultValue(PenaltykickService.makeResultString(computerList, player.getNumberList()));
+    public void compareEachPlayer(Player player, Game game) {
+        player.initResultValue(
+            game.makeResultString(player.getNumberList()));
     }
 
     public void printResult(Player player1, Player player2) {
@@ -45,15 +69,15 @@ public class PenaltykickController {
         int player1Result = player1.getSuccessNumber();
         int player2Result = player2.getSuccessNumber();
 
-        if(player1Result > player2Result) {
+        if (player1Result > player2Result) {
             outputView.printResultPlayer1Win();
         }
 
-        if(player1Result < player2Result) {
+        if (player1Result < player2Result) {
             outputView.printResultPlayer2Win();
         }
 
-        if(player1Result == player2Result) {
+        if (player1Result == player2Result) {
             outputView.printResultDraw();
         }
     }
