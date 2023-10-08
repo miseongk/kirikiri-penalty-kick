@@ -1,10 +1,13 @@
 package penaltykick.model;
 
 import java.util.*;
+
 public class Player {
+
     private final List<Integer> numberList;
     private String resultString;
     private int successNumber;
+
     public Player(List<Integer> numberList) {
         this.numberList = numberList;
         this.successNumber = 0;
@@ -16,12 +19,14 @@ public class Player {
 
     public void initResultValue(String resultString) {
         this.resultString = resultString;
-        for(char c: resultString.toCharArray()) {
-            if(c == 'O') successNumber++;
+        for (char c : resultString.toCharArray()) {
+            if (c == 'O') {
+                successNumber++;
+            }
         }
     }
 
-      public String getResultString() {
+    public String getResultString() {
         return resultString;
     }
 

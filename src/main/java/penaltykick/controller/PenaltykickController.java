@@ -8,6 +8,7 @@ import penaltykick.view.OutputView;
 import java.util.List;
 
 public class PenaltykickController {
+
     InputView inputView = new InputView();
     OutputView outputView = new OutputView();
 
@@ -31,7 +32,8 @@ public class PenaltykickController {
     }
 
     public void compareEachPlayer(List<Integer> computerList, Player player) {
-        player.initResultValue(PenaltykickService.makeResultString(computerList, player.getNumberList()));
+        player.initResultValue(
+            PenaltykickService.makeResultString(computerList, player.getNumberList()));
     }
 
     public void printResult(Player player1, Player player2) {
@@ -45,15 +47,15 @@ public class PenaltykickController {
         int player1Result = player1.getSuccessNumber();
         int player2Result = player2.getSuccessNumber();
 
-        if(player1Result > player2Result) {
+        if (player1Result > player2Result) {
             outputView.printResultPlayer1Win();
         }
 
-        if(player1Result < player2Result) {
+        if (player1Result < player2Result) {
             outputView.printResultPlayer2Win();
         }
 
-        if(player1Result == player2Result) {
+        if (player1Result == player2Result) {
             outputView.printResultDraw();
         }
     }
