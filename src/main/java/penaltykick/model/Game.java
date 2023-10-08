@@ -1,13 +1,30 @@
 package penaltykick.model;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
 public class Game {
+    private final List<Integer> randomList;
 
-    public static final int KICK_NUMBER = 5;
-    public static final int START_SELECT_NUMBER = 1;
-    public static final int END_SELECT_NUMBER = 3;
-    public static final int MAXIMUM_RANDOM_NUMBER = 3;
-    public static final String KICK_SUCCESS = "O";
-    public static final String KICK_FAILURE = "X";
+    public Game(List<Integer> randomList) {
+        this.randomList = Collections.unmodifiableList(randomList);
+    }
 
-    public static final String INPUT_STRING_DIVIDE_CHARACTER = " ";
+
+
+    public String makeResultString(List<Integer> List) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < GameSetting.KICK_NUMBER; i++) {
+            stringBuilder.append(getResultCharacter(randomList.get(i), List.get(i)));
+        }
+        return stringBuilder.toString();
+    }
+
+    private String getResultCharacter(int i, int j) {
+        if (i == j) {
+            return GameSetting.KICK_SUCCESS;
+        }
+        return GameSetting.KICK_FAILURE;
+    }
 }

@@ -14,18 +14,5 @@ public class PenaltykickService {
         }
         return randomList;
     }
-
-
-    public static String makeResultString(List<Integer> List1, List<Integer> List2) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < GameSetting.KICK_NUMBER; i++) {
-            if (Objects.equals(List1.get(i), List2.get(i))) {
-                stringBuilder.append(GameSetting.KICK_SUCCESS);
-                continue;
-            }
-            stringBuilder.append(GameSetting.KICK_FAILURE);
-        }
-        return stringBuilder.toString();
-    }
 }
 

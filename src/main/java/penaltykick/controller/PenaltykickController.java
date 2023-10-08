@@ -1,6 +1,7 @@
 package penaltykick.controller;
 
 import penaltykick.model.Player;
+import penaltykick.model.Game;
 import penaltykick.service.PenaltykickService;
 import penaltykick.view.InputView;
 import penaltykick.view.OutputView;
@@ -18,7 +19,8 @@ public class PenaltykickController {
         try {
             Player player1 = initPlayer1();
             Player player2 = initPlayer2();
-            comparePlayer(player1, player2);
+            Game game = initGame();
+            comparePlayer(player1, player2, game);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             startProgram();
@@ -43,16 +45,19 @@ public class PenaltykickController {
         }
     }
 
-    public void comparePlayer(Player player1, Player player2) {
-        List<Integer> computerList = PenaltykickService.makeRandomNumberList();
-        compareEachPlayer(computerList, player1);
-        compareEachPlayer(computerList, player2);
+    public Game initGame() {
+        return new Game(PenaltykickService.makeRandomNumberList());
+    }
+
+    public void comparePlayer(Player player1, Player player2, Game game) {
+        compareEachPlayer(player1, game);
+        compareEachPlayer(player2, game);
         printResult(player1, player2);
     }
 
-    public void compareEachPlayer(List<Integer> computerList, Player player) {
+    public void compareEachPlayer(Player player, Game game) {
         player.initResultValue(
-            PenaltykickService.makeResultString(computerList, player.getNumberList()));
+            game.makeResultString(player.getNumberList()));
     }
 
     public void printResult(Player player1, Player player2) {
