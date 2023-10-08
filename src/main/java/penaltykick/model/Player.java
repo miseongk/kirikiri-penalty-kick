@@ -20,7 +20,7 @@ public class Player {
     public void initResultValue(String resultString) {
         this.resultString = resultString;
         for (char c : resultString.toCharArray()) {
-            if (GameSetting.KICK_SUCCESS.equals(String.valueOf(c))) {
+            if (Game.KICK_SUCCESS.equals(String.valueOf(c))) {
                 successNumber++;
             }
         }

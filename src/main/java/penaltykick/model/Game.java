@@ -1,6 +1,6 @@
 package penaltykick.model;
 
-public class GameSetting {
+public class Game {
 
     public static final int KICK_NUMBER = 5;
     public static final int START_SELECT_NUMBER = 1;
