@@ -14,7 +14,7 @@ public class Player {
     }
 
     public List<Integer> getNumberList() {
-        return numberList;
+        return Collections.unmodifiableList(numberList);
     }
 
     public void initResultValue(String resultString) {
