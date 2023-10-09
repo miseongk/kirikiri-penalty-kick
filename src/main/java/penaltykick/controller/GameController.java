@@ -3,6 +3,8 @@ package penaltykick.controller;
 import penaltykick.domain.Goalkeeper;
 import penaltykick.domain.Player;
 import penaltykick.domain.Referee;
+import penaltykick.dto.GameResult;
+import penaltykick.dto.PlayerResult;
 import penaltykick.dto.Result;
 
 import java.util.Scanner;
@@ -13,19 +15,19 @@ public class GameController {
     private final String PLAYER2 = "플레이어2";
 
     private Scanner sc;
-    private Player player1;
-    private Player player2;
-    private Goalkeeper goalKeeper;
-    private Referee referee;
+    private Player gamePlayer1;
+    private Player gamePlayer2;
+    private Goalkeeper gameGoalkeeper;
+    private Referee gameReferee;
 
 
 
-    public GameController(Scanner scanner) {
+    public GameController(Scanner scanner, Goalkeeper goalKeeper, Player player1, Player player2, Referee referee) {
         sc = scanner;
-        goalKeeper = new Goalkeeper();
-        player1 = new Player(PLAYER1);
-        player2 = new Player(PLAYER2);
-        referee = new Referee();
+        gameGoalkeeper = goalKeeper;
+        gamePlayer1 = player1;
+        gamePlayer2 = player2;
+        gameReferee = referee;
     }
 
     public void play() {
@@ -36,25 +38,25 @@ public class GameController {
 
 
     public void startGame() {
-        referee.notifyStartGame();
+        gameReferee.notifyStartGame();
     }
 
     public void askNumber() {
-        goalKeeper.generateNumbers();
+        gameGoalkeeper.generateNumbers();
 
-        referee.notifyAskNumbers(player1.getName());
+        gameReferee.notifyAskNumbers(gamePlayer1.getName());
         String player1Numbers = sc.nextLine();
-        player1.generateNumbers(player1Numbers);
+        gamePlayer1.generateNumbers(player1Numbers);
 
-        referee.notifyAskNumbers(player2.getName());
+        gameReferee.notifyAskNumbers(gamePlayer2.getName());
         String player2Numbers = sc.nextLine();
-        player2.generateNumbers(player2Numbers);
+        gamePlayer2.generateNumbers(player2Numbers);
     }
 
     public void endGame() {
-        Result player1Result = referee.decideGoalOrNot(goalKeeper.getNumbers(), player1.getNumbers(), player1.getName());
-        Result player2Result = referee.decideGoalOrNot(goalKeeper.getNumbers(), player2.getNumbers(), player2.getName());
-        Result gameResult = referee.decideWinner(player1Result, player2Result);
-        referee.notifyGameResult(gameResult);
+        PlayerResult player1Result = gameReferee.generatePlayerResult(gameGoalkeeper.getNumbers(), gamePlayer1.getNumbers(), gamePlayer1.getName());
+        PlayerResult player2Result = gameReferee.generatePlayerResult(gameGoalkeeper.getNumbers(), gamePlayer2.getNumbers(), gamePlayer2.getName());
+        GameResult gameResult = gameReferee.decideWinner(player1Result, player2Result);
+        gameReferee.notifyGameResult(gameResult);
     }
 }
