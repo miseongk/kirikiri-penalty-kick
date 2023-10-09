@@ -13,17 +13,13 @@ public class GameConfig {
 
     private GameController controller;
 
-    public GameConfig(GameController gameController) {
-        controller = gameController;
-    }
-
-    public void set() {
+    public GameConfig() {
         Goalkeeper goalkeeper = new Goalkeeper(new GenerateRandom(), new ArrayList<Integer>());
         Player player1 = new Player("플레이어1", new ArrayList<Integer>());
         Player player2 = new Player("플레이어2", new ArrayList<Integer>());
         Referee referee = new Referee();
         Scanner scanner = new Scanner(System.in);
-        GameController gameController = new GameController(scanner, goalkeeper, player1, player2, referee);
+        controller = new GameController(scanner, goalkeeper, player1, player2, referee);
     }
 
     public void gameStart() {

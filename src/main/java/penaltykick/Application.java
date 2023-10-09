@@ -8,8 +8,7 @@ import java.util.Scanner;
 public class Application {
 
     public static void main(String[] args) {
-        GameConfig gameConfig = new GameConfig(new GameController());
-        gameConfig.set();
+        GameConfig gameConfig = new GameConfig();
         gameConfig.gameStart();
     }
 }
