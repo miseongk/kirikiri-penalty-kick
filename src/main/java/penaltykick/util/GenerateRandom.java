@@ -15,4 +15,5 @@ public class GenerateRandom {
         return START + random.nextInt(END);
     }
 
+
 }

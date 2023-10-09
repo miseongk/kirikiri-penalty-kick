@@ -1,5 +1,7 @@
 package penaltykick.domain;
 
+import penaltykick.dto.GameResult;
+import penaltykick.dto.PlayerResult;
 import penaltykick.dto.Result;
 
 import java.util.ArrayList;
@@ -20,36 +22,40 @@ public class Referee {
 
     }
 
-    public Result decideGoalOrNot(ArrayList<Integer> goalkeeperNumbers, ArrayList<Integer> playerNumbers, String playerName) {
+    public PlayerResult generatePlayerResult(ArrayList<Integer> goalkeeperNumbers, ArrayList<Integer> playerNumbers, String playerName) {
         String state = "";
-        int countGoal = 0;
-
+        int numberOfGoal = 0;
         for (int i=0; i<LIMIT; i++) {
-            if (goalkeeperNumbers.get(i) == playerNumbers.get(i)) {
-                state += GOAL;
-                countGoal += 1;
-            } else {
-                state += NO_GOAL;
-            }
+            checkGoalOrNot(goalkeeperNumbers.get(i), playerNumbers.get(i), state, numberOfGoal);
         }
-        return new Result(state, countGoal, playerName, false);
+        return new PlayerResult(playerName, state, numberOfGoal);
     }
 
-    public Result decideWinner(Result state1, Result state2) {
+    public void checkGoalOrNot(Integer goalkeeperNumber, Integer playerNumber, String state, Integer numberOfGoal) {
+        if (goalkeeperNumber == playerNumber) {
+            state += GOAL;
+            numberOfGoal += 1;
+        } else {
+            state += NO_GOAL;
+        }
+    }
+
+    public GameResult decideWinner(PlayerResult player1Result, PlayerResult player2Result) {
         System.out.println();
         System.out.println(SHOW_GAME_RESULT);
 
-        System.out.println(state1.show());
-        System.out.println(state2.show());
+        System.out.println(player1Result.show());
+        System.out.println(player2Result.show());
 
-        if (state1.getGoal() > state2.getGoal()) {
-            return state1;
-        } else if (state1.getGoal() == state2.getGoal()) {
-            return new Result(null, null, null, true);
+        if (player1Result.getGoal() > player2Result.getGoal()) {
+            return new GameResult(player1Result.getName(), false);
+        } else if (player1Result.getGoal() == player2Result.getGoal()) {
+            return new GameResult(null, true);
         } else {
-            return state2;
+            return new GameResult(player2Result.getName(), false);
         }
     }
+
 
     public void notifyStartGame() {
         System.out.println(START_GAME);
@@ -60,11 +66,11 @@ public class Referee {
         System.out.print(playerName + " : ");
     }
 
-    public void notifyGameResult(Result result) {
-        if (result.getDraw()) {
+    public void notifyGameResult(GameResult gameResult) {
+        if (gameResult.isDraw()) {
             System.out.println(NOTIFY_DRAW);
         } else {
-            System.out.println(result.getPlayerName() + NOTIFY_WINNER);
+            System.out.println(gameResult.getWinner() + NOTIFY_WINNER);
         }
     }
 }
