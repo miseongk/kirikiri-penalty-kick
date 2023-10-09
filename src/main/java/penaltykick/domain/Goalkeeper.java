@@ -45,7 +45,7 @@ public class Goalkeeper {
 
     private void checkNumbersIsEmpty() {
         if (getSize() == 0) {
-            throw new IllegalStateException("골키퍼가 아직 숫자를 생성하지 않았습니다")
+            throw new IllegalStateException("골키퍼가 아직 숫자를 생성하지 않았습니다");
         }
     }
 }

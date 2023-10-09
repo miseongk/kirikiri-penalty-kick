@@ -21,6 +21,9 @@ public class GameController {
     private Referee gameReferee;
 
 
+    public GameController() {
+
+    }
 
     public GameController(Scanner scanner, Goalkeeper goalKeeper, Player player1, Player player2, Referee referee) {
         sc = scanner;

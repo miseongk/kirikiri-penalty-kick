@@ -8,9 +8,9 @@ public class Player {
     private final Integer END = 3;
     private ArrayList<Integer> numbers;
 
-    public Player(String playerName) {
+    public Player(String playerName, ArrayList<Integer> list) {
         name = playerName;
-        numbers = new ArrayList<>();
+        numbers = list;
     }
 
     public void generateNumbers(String input) {
@@ -77,7 +77,7 @@ public class Player {
 
     private void checkNumbersIsEmpty() {
         if (getSize() == 0) {
-            throw new IllegalStateException("플레이어가 아직 숫자를 생성하지 않았습니다")
+            throw new IllegalStateException("플레이어가 아직 숫자를 생성하지 않았습니다");
         }
     }
 }
