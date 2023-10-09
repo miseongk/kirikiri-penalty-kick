@@ -2,7 +2,6 @@ package penaltykick.domain;
 
 import penaltykick.dto.GameResult;
 import penaltykick.dto.PlayerResult;
-import penaltykick.dto.Result;
 
 import java.util.ArrayList;
 
@@ -22,21 +21,18 @@ public class Referee {
 
     }
 
-    public PlayerResult generatePlayerResult(ArrayList<Integer> goalkeeperNumbers, ArrayList<Integer> playerNumbers, String playerName) {
-        String state = "";
-        int numberOfGoal = 0;
+    public PlayerResult generatePlayerResult(ArrayList<Integer> goalkeeperNumbers, ArrayList<Integer> playerNumbers, PlayerResult playerResult) {
         for (int i=0; i<LIMIT; i++) {
-            checkGoalOrNot(goalkeeperNumbers.get(i), playerNumbers.get(i), state, numberOfGoal);
+            checkGoalOrNot(goalkeeperNumbers.get(i), playerNumbers.get(i), playerResult);
         }
-        return new PlayerResult(playerName, state, numberOfGoal);
+        return playerResult;
     }
 
-    public void checkGoalOrNot(Integer goalkeeperNumber, Integer playerNumber, String state, Integer numberOfGoal) {
+    public void checkGoalOrNot(Integer goalkeeperNumber, Integer playerNumber, PlayerResult playerResult) {
         if (goalkeeperNumber == playerNumber) {
-            state += GOAL;
-            numberOfGoal += 1;
+            playerResult.setState(GOAL);
         } else {
-            state += NO_GOAL;
+            playerResult.setState(NO_GOAL);
         }
     }
 

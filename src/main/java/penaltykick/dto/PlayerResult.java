@@ -3,15 +3,18 @@ package penaltykick.dto;
 import penaltykick.domain.Player;
 
 public class PlayerResult {
+
+    private final Character GOAL = 'O';
+    private final Character NO_GOAL = 'X';
     private final String name;
-    private final String state;
+    private String state;
 
-    private final Integer goal;
+    private Integer goal;
 
-    public PlayerResult(String playerName, String playerState, Integer numberOfGoal) {
+    public PlayerResult(String playerName) {
         name = playerName;
-        state = playerState;
-        goal = numberOfGoal;
+        state = "";
+        goal = 0;
     }
 
     public String getName() {
@@ -26,7 +29,16 @@ public class PlayerResult {
         return this.goal;
     }
 
+    public void setState(Character token) {
+        if (token == GOAL) {
+            state += GOAL;
+            goal += 1;
+        } else {
+            state += NO_GOAL;
+        }
+    }
+
     public String show() {
-        return this.name + " : " + this.state;
+        return getName() + " : " + getState();
     }
 }

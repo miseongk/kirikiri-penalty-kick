@@ -5,7 +5,6 @@ import penaltykick.domain.Player;
 import penaltykick.domain.Referee;
 import penaltykick.dto.GameResult;
 import penaltykick.dto.PlayerResult;
-import penaltykick.dto.Result;
 
 import java.util.Scanner;
 
@@ -57,8 +56,8 @@ public class GameController {
     }
 
     public void endGame() {
-        PlayerResult player1Result = gameReferee.generatePlayerResult(gameGoalkeeper.getNumbers(), gamePlayer1.getNumbers(), gamePlayer1.getName());
-        PlayerResult player2Result = gameReferee.generatePlayerResult(gameGoalkeeper.getNumbers(), gamePlayer2.getNumbers(), gamePlayer2.getName());
+        PlayerResult player1Result = gameReferee.generatePlayerResult(gameGoalkeeper.getNumbers(), gamePlayer1.getNumbers(), new PlayerResult(gamePlayer1.getName()));
+        PlayerResult player2Result = gameReferee.generatePlayerResult(gameGoalkeeper.getNumbers(), gamePlayer2.getNumbers(), new PlayerResult(gamePlayer2.getName()));
         GameResult gameResult = gameReferee.decideWinner(player1Result, player2Result);
         gameReferee.notifyGameResult(gameResult);
     }
