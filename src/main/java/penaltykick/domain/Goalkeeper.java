@@ -10,29 +10,28 @@ public class Goalkeeper {
     private ArrayList<Integer> numbers;
     private final Integer LIMIT = 5;
 
-    public Goalkeeper() {
-        generateRandom = new GenerateRandom();
-        numbers = new ArrayList<>();
+    public Goalkeeper(GenerateRandom gr, ArrayList<Integer> list) {
+        generateRandom = gr;
+        numbers = list;
     }
 
     public void generateNumbers() {
-        if (isGenerated()) throw new IllegalStateException("이미 골키퍼가 숫자를 생성했습니다");
-
+        validate();
         for (int i=0; i<LIMIT; i++) {
             int randomNumber = generateRandom.getNumber();
             numbers.add(randomNumber);
         }
     }
 
-    private boolean isGenerated() {
-        if (numbers.size() != 0) {
-            return true;
+    // validate : check if goalkeeper has random numbers
+    private void validate() {
+        if (getSize() != 0) {
+            throw new IllegalStateException("이미 골키퍼가 숫자를 생성했습니다");
         }
-        return false;
     }
 
     public int getNumber(int index) {
-        if (numbers.size() == 0) throw new IllegalStateException("골키퍼가 아직 숫자를 생성하지 않았습니다");
+        if (getSize() == 0) throw new IllegalStateException("골키퍼가 아직 숫자를 생성하지 않았습니다");
         return numbers.get(index);
     }
 
@@ -40,5 +39,8 @@ public class Goalkeeper {
         return this.numbers;
     }
 
+    public int getSize() {
+        return numbers.size();
+    }
 
 }
