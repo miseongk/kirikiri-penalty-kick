@@ -20,13 +20,24 @@ public class Application {
     private static ArrayList<String> OXListGenerator(ArrayList<Integer> playerNumberList, ArrayList<Integer> computerNumberList) {
         ArrayList<String> OXList = new ArrayList<>(); // 게임마다 초기화
         for (int i = 0; i < 5; i++) {
-            if (playerNumberList.get(i).equals(computerNumberList.get(i))) {
-                OXList.add("O");
-            } else {
-                OXList.add("X");
-            }
+            ifPlayerAndComputerEqualsAddO(playerNumberList, computerNumberList, OXList, i);
+            ifPlayerAndComputerNotEqualsAddX(playerNumberList, computerNumberList, OXList, i);
         }
         return OXList;
+    }
+
+    private static void ifPlayerAndComputerEqualsAddO(ArrayList<Integer> playerNumberList,
+        ArrayList<Integer> computerNumberList, ArrayList<String> OXList, int i) {
+        if (playerNumberList.get(i).equals(computerNumberList.get(i))) {
+            OXList.add("O");
+        }
+    }
+
+    private static void ifPlayerAndComputerNotEqualsAddX(ArrayList<Integer> playerNumberList,
+        ArrayList<Integer> computerNumberList, ArrayList<String> OXList, int i) {
+        if (!playerNumberList.get(i).equals(computerNumberList.get(i))) {
+            OXList.add("X");
+        }
     }
 
     // O의 개수를 카운트하는 메소드
