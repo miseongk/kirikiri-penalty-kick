@@ -54,31 +54,6 @@ public class Application {
             count = count + 1;
         } return count;
     }
-
-    // 승자를 판단하는 메소드
-    protected static int winnerJudgement(int player1_O_count, int player2_O_count) {
-        if (player1_O_count > player2_O_count) {
-            return 1; // 플레이어 1이 승리
-        } else if (player1_O_count < player2_O_count) {
-            return 2; // 플레이어 2가 승리
-        }
-        // 여기까지 도달했다면 무승부
-        return 0;
-    }
-
-    // 승자를 출력하는 메소드
-    private static void printWinner(int player1_O_count, int player2_O_count) {
-        int result = winnerJudgement(player1_O_count, player2_O_count);
-        if (result == 1) {
-            System.out.println("플레이어 1이(가) 우승했습니다.");
-        } else if (result == 2) {
-            System.out.println("플레이어 2이(가) 승리했습니다.");
-        }
-        else if (result == 3) {
-            System.out.println("무승부입니다.");
-        }
-    }
-
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         GoalKeeper goalKeeper = new GoalKeeper();
