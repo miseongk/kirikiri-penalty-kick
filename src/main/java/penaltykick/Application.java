@@ -44,11 +44,15 @@ public class Application {
     private static int OCounter(ArrayList<String> playerNumberList) {
         int count = 0;
         for (int i = 0; i < playerNumberList.size(); i++) {
-            if (playerNumberList.get(i).equals("O")) {
-                count = count + 1;
-            }
+            count = ifO_AddCount(playerNumberList, i, count);
         }
         return count;
+    }
+
+    private static int ifO_AddCount(ArrayList<String> playerNumberList, int i, int count) {
+        if (playerNumberList.get(i).equals("O")) {
+            count = count + 1;
+        } return count;
     }
 
     // 승자를 판단하는 메소드
