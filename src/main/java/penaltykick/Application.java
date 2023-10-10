@@ -62,6 +62,14 @@ public class Application {
         printArrayList(player2Number);
     }
 
+    private static void printResult(ArrayList<String> player1_OX_List, ArrayList<String> player2_OX_List) {
+        System.out.println("게임 결과");
+        System.out.print("플레이어1: ");
+        printArrayList(player1_OX_List);
+        System.out.print("플레이어2: ");
+        printArrayList(player2_OX_List);
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         GoalKeeper goalKeeper = new GoalKeeper();
@@ -85,11 +93,7 @@ public class Application {
 
         referee.winnerJudgement(player1_O_counts, player2_O_counts);
 
-        System.out.println("게임 결과");
-        System.out.print("플레이어1: ");
-        printArrayList(player1_OX_List);
-        System.out.print("플레이어2: ");
-        printArrayList(player2_OX_List);
+        printResult(player1_OX_List, player2_OX_List);
 
         referee.printWinner(player1_O_counts,player2_O_counts);
     }
