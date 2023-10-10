@@ -6,12 +6,14 @@ public class Application {
     // [] 와 ,를 빼고 출력하게 하는 메소드
     private static void printArrayList(ArrayList<?> list) {
         for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i));
-            if (i < list.size() - 1) {
-                System.out.print(" ");
-            }
+            printElement(i, list);
+            System.out.print(" ");
         }
         System.out.println();
+    }
+
+    private static void printElement(int i, ArrayList<?> list) {
+        System.out.print(list.get(i));
     }
 
     // OXList를 만드는 메서드
