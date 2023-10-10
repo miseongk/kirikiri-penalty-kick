@@ -57,13 +57,10 @@ public class Application {
         } else if (result == 2) {
             System.out.println("플레이어 2이(가) 승리했습니다.");
         }
-        else if (result == 3){
+        else if (result == 3) {
             System.out.println("무승부입니다.");
         }
     }
-
-
-
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
