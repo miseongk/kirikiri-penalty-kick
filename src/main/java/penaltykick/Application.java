@@ -54,10 +54,19 @@ public class Application {
             count = count + 1;
         } return count;
     }
+
+    private static void printPlayerAndArray(ArrayList<Integer> player1Number, ArrayList<Integer> player2Number) {
+        System.out.println("플레이어1: ");
+        printArrayList(player1Number);
+        System.out.println("플레이어2: ");
+        printArrayList(player2Number);
+    }
+
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         GoalKeeper goalKeeper = new GoalKeeper();
         Player player = new Player();
+        Referee referee = new Referee();
 
         System.out.println("페널티 킥 게임을 시작합니다.");
         System.out.println("총 5번의 위치를 입력해주세요.");
@@ -66,10 +75,7 @@ public class Application {
         ArrayList<Integer> player1Number = player.playerNumberGenerator(5);
         ArrayList<Integer> player2Number = player.playerNumberGenerator(5);
 
-        System.out.println("플레이어1: ");
-        printArrayList(player1Number);
-        System.out.println("플레이어2: ");
-        printArrayList(player2Number);
+        printPlayerAndArray(player1Number, player2Number);
 
         ArrayList<String> player1_OX_List = OXListGenerator(player1Number,computerNumber);
         ArrayList<String> player2_OX_List = OXListGenerator(player2Number,computerNumber);
@@ -77,7 +83,7 @@ public class Application {
         int player1_O_counts = OCounter(player1_OX_List);
         int player2_O_counts = OCounter(player2_OX_List);
 
-        winnerJudgement(player1_O_counts, player2_O_counts);
+        referee.winnerJudgement(player1_O_counts, player2_O_counts);
 
         System.out.println("게임 결과");
         System.out.print("플레이어1: ");
@@ -85,6 +91,6 @@ public class Application {
         System.out.print("플레이어2: ");
         printArrayList(player2_OX_List);
 
-        printWinner(player1_O_counts,player2_O_counts);
+        referee.printWinner(player1_O_counts,player2_O_counts);
     }
 }
