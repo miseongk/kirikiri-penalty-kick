@@ -1,46 +1,46 @@
 package penaltykick.controller;
 
-import java.io.IOException;
 import java.util.List;
 
 import penaltykick.domain.ComputerPosition;
 import penaltykick.domain.GameResult;
-import penaltykick.service.SoccerGameService;
+import penaltykick.domain.PlayerPosition;
 import penaltykick.view.InputView;
 import penaltykick.view.OutputView;
 
 public class SoccerGameController {
-	private SoccerGameService soccerGameService;
 
 	public SoccerGameController() {
 		OutputView.printStartFirstMessage();
 		OutputView.printStartSecondMessage();
 	}
 
-	public void startSoccerGame() throws IOException {
-		this.soccerGameService = new SoccerGameService();
-		playGame();
+	public void playGame() {
+		gameProcess();
 	}
 
-	private void playGame() throws IOException {
+	private void gameProcess() {
 		List<Integer> computerPosition = new ComputerPosition().getComputerPosition();
-		soccerGameService.initSoccerGame(computerPosition);
-		OutputView outputView = new OutputView(playerOneProcess(), playerTwoProcess());
+
+		List<Integer> playerOnePosition = createPlayerPosition(InputView.INPUT_PLAYER_ONE_MESSAGE);
+		List<Integer> playerTwoPosition = createPlayerPosition(InputView.INPUT_PLAYER_TWO_MESSAGE);
+
+		GameResult playerOneResult = new GameResult(computerPosition, playerOnePosition);
+		GameResult playerTwoResult = new GameResult(computerPosition, playerTwoPosition);
+		OutputView outputView = new OutputView(playerOneResult, playerTwoResult);
+
 		outputView.printClearMessage();
 		outputView.printGameResult();
 	}
 
-	private GameResult playerOneProcess() throws IOException {
-		GameResult playerOneResult;
-		String playerOneInput = InputView.printInputPlayerOneMessage();
-		playerOneResult = soccerGameService.compareTwoPosition(playerOneInput);
-		return playerOneResult;
-	}
-
-	private GameResult playerTwoProcess() throws IOException {
-		GameResult playerTwoResult;
-		String playerTwoInput = InputView.printInputPlayerTwoMessage();
-		playerTwoResult = soccerGameService.compareTwoPosition(playerTwoInput);
-		return playerTwoResult;
+	private List<Integer> createPlayerPosition(String inputMessage) {
+		try {
+			System.out.print(inputMessage);
+			String input = InputView.inputPlayerPosition();
+			return new PlayerPosition(input).getPlayerPosition();
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			return createPlayerPosition(inputMessage);
+		}
 	}
 }
