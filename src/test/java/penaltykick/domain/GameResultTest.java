@@ -18,10 +18,12 @@ class GameResultTest {
 		GameResult playerOneGameResult = new GameResult(comPos, playerOnePos);
 		GameResult playerTwoGameResult = new GameResult(comPos, playerTwoPos);
 
+		OutputView outputView = new OutputView(playerOneGameResult, playerTwoGameResult);
+
 		assertEquals(playerOneGameResult.goalCount, 4);
 		assertEquals(playerTwoGameResult.goalCount, 3);
-		assertEquals(playerOneGameResult.convertResult, "OOOOX");
-		assertEquals(playerTwoGameResult.convertResult, "OOXXO");
+		assertEquals(outputView.playerResultConvert(playerOneGameResult.convertResult), "OOOOX");
+		assertEquals(outputView.playerResultConvert(playerTwoGameResult.convertResult), "OOXXO");
 	}
 
 	@Test
@@ -33,10 +35,12 @@ class GameResultTest {
 		GameResult playerOneGameResult = new GameResult(comPos, playerOnePos);
 		GameResult playerTwoGameResult = new GameResult(comPos, playerTwoPos);
 
+		OutputView outputView = new OutputView(playerOneGameResult, playerTwoGameResult);
+
 		assertEquals(playerOneGameResult.goalCount, 2);
 		assertEquals(playerTwoGameResult.goalCount, 5);
-		assertEquals(playerOneGameResult.convertResult, "OOXXX");
-		assertEquals(playerTwoGameResult.convertResult, "OOOOO");
+		assertEquals(outputView.playerResultConvert(playerOneGameResult.convertResult), "OOXXX");
+		assertEquals(outputView.playerResultConvert(playerTwoGameResult.convertResult), "OOOOO");
 	}
 
 	@Test
@@ -48,10 +52,11 @@ class GameResultTest {
 		GameResult playerOneGameResult = new GameResult(comPos, playerOnePos);
 		GameResult playerTwoGameResult = new GameResult(comPos, playerTwoPos);
 
+		OutputView outputView = new OutputView(playerOneGameResult, playerTwoGameResult);
+
 		assertEquals(playerOneGameResult.goalCount, 0);
 		assertEquals(playerTwoGameResult.goalCount, 0);
-		assertEquals(playerOneGameResult.convertResult, "XXXXX");
-		assertEquals(playerTwoGameResult.convertResult, "XXXXX");
+		assertEquals(outputView.playerResultConvert(playerOneGameResult.convertResult), "XXXXX");
+		assertEquals(outputView.playerResultConvert(playerTwoGameResult.convertResult), "XXXXX");
 	}
-
 }
