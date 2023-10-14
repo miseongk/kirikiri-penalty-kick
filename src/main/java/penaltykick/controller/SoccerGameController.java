@@ -24,22 +24,21 @@ public class SoccerGameController {
 
 	private void playGame() throws IOException {
 		List<Integer> computerPosition = new ComputerPosition().getComputerPosition();
-		OutputView outputView = new OutputView(playerOneProcess(computerPosition), playerTwoProcess(computerPosition));
+		soccerGameService.initSoccerGame(computerPosition);
+		OutputView outputView = new OutputView(playerOneProcess(), playerTwoProcess());
 		outputView.printClearMessage();
 		outputView.printGameResult();
 	}
 
-	private GameResult playerOneProcess(List<Integer> computerPos) throws IOException {
+	private GameResult playerOneProcess() throws IOException {
 		GameResult playerOneResult;
-		soccerGameService.initSoccerGame(computerPos);
 		String playerOneInput = InputView.printInputPlayerOneMessage();
 		playerOneResult = soccerGameService.compareTwoPosition(playerOneInput);
 		return playerOneResult;
 	}
 
-	private GameResult playerTwoProcess(List<Integer> computerPos) throws IOException {
+	private GameResult playerTwoProcess() throws IOException {
 		GameResult playerTwoResult;
-		soccerGameService.initSoccerGame(computerPos);
 		String playerTwoInput = InputView.printInputPlayerTwoMessage();
 		playerTwoResult = soccerGameService.compareTwoPosition(playerTwoInput);
 		return playerTwoResult;
