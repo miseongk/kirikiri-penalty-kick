@@ -8,16 +8,12 @@ import java.util.stream.Collectors;
 import penaltykick.constant.Constant;
 
 public class ComputerPosition {
+
 	private final List<Integer> computerPosition;
 	private final Random random = new Random();
 
 	public ComputerPosition() {
-		this.computerPosition = createRandomPosition();
-	}
-
-	private List<Integer> createRandomPosition() {
-		List<Integer> randomPosition = pickRandomPosition();
-		return randomPosition;
+		this.computerPosition = pickRandomPosition();
 	}
 
 	private List<Integer> pickRandomPosition() {
