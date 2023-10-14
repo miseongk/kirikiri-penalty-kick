@@ -1,12 +1,10 @@
 package penaltykick;
 
-import java.io.IOException;
-
 import penaltykick.controller.SoccerGameController;
 
 public class Application {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		SoccerGameController game = new SoccerGameController();
-		game.startSoccerGame();
+		game.playGame();
 	}
 }
