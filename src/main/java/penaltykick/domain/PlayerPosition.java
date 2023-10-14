@@ -5,36 +5,42 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import penaltykick.constant.Constant;
+import penaltykick.constant.errorMessage.PlayerPositionError;
 
 public class PlayerPosition {
 	private final List<Integer> playerPosition;
 
-	public PlayerPosition(String playerInput) {
-		this.playerPosition = createPlayerPosition(playerInput);
+	public PlayerPosition(String input) {
+		List<Integer> playerPositionList = createPlayerPosition(input);
+		validatePlayerInputSize(playerPositionList);
+		validatePlayerInputRange(playerPositionList);
+		this.playerPosition = playerPositionList;
 	}
 
-	private List<Integer> createPlayerPosition(String str) throws IllegalArgumentException {
-		int[] playerPosition = convertStringToInt(str);
-		if (!checkValidPosition(playerPosition)) {
-			throw new IllegalArgumentException();
+	private List<Integer> createPlayerPosition(String input) {
+		return Arrays.stream(input.split(" "))
+			.map(PlayerPosition::validatePlayerInputNumber)
+			.collect(Collectors.toList());
+	}
+
+	private static int validatePlayerInputNumber(String input) {
+		try {
+			return Integer.parseInt(input);
+		} catch (NumberFormatException e) {
+			throw new IllegalArgumentException(PlayerPositionError.PLAYER_POSITION_WRONG_INPUT_ERROR_MESSAGE);
 		}
-		return Arrays.stream(playerPosition).boxed().collect(Collectors.toList());
 	}
 
-	private int[] convertStringToInt(String str) {
-		return Arrays.stream(str.split(" ")).mapToInt(Integer::parseInt).toArray();
+	private void validatePlayerInputSize(List<Integer> playerPos) {
+		if (playerPos.size() != Constant.POSITION_LENGTH) {
+			throw new IllegalArgumentException(PlayerPositionError.PLAYER_POSITION_WRONG_SIZE_ERROR_MESSAGE);
+		}
 	}
 
-	private boolean checkValidPosition(int[] playerPos) {
-		return isRightLength(playerPos) && isNumber(playerPos);
-	}
-
-	private boolean isRightLength(int[] playerPos) {
-		return playerPos.length == Constant.POSITION_LENGTH;
-	}
-
-	private boolean isNumber(int[] playerPos) {
-		return Arrays.stream(playerPos).allMatch(pos -> Constant.START_RANGE <= pos && pos <= Constant.END_RANGE);
+	private void validatePlayerInputRange(List<Integer> playerPos) {
+		if (playerPos.stream().anyMatch(pos -> Constant.START_RANGE > pos || pos > Constant.END_RANGE)) {
+			throw new IllegalArgumentException(PlayerPositionError.PLAYER_POSITION_WRONG_RANGE_ERROR_MESSAGE);
+		}
 	}
 
 	public List<Integer> getPlayerPosition() {
