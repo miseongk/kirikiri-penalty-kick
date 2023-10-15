@@ -24,9 +24,7 @@ public class OutputView {
 	}
 
 	public void printGameResult() {
-		printPlayerOneWin();
-		printPlayerTwoWin();
-		printEndedTie();
+		printPlayerResult();
 	}
 
 	public static void printStartMessage() {
@@ -55,19 +53,13 @@ public class OutputView {
 		return GOAL_FAIL;
 	}
 
-	private void printPlayerOneWin() {
+	private void printPlayerResult() {
 		if (playerOneResult.goalCount > playerTwoResult.goalCount) {
 			System.out.println(WINNER_PLAYER_ONE_MESSAGE);
 		}
-	}
-
-	private void printPlayerTwoWin() {
 		if (playerOneResult.goalCount < playerTwoResult.goalCount) {
 			System.out.println(WINNER_PLAYER_TWO_MESSAGE);
 		}
-	}
-
-	private void printEndedTie() {
 		if (playerOneResult.goalCount == playerTwoResult.goalCount) {
 			System.out.println(GAME_ENDED_TIE_MESSAGE);
 		}
