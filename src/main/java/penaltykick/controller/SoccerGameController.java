@@ -26,6 +26,7 @@ public class SoccerGameController {
 
 		GameResult playerOneResult = new GameResult(computerPosition, playerOnePosition);
 		GameResult playerTwoResult = new GameResult(computerPosition, playerTwoPosition);
+
 		OutputView outputView = new OutputView(playerOneResult, playerTwoResult);
 
 		outputView.printClearMessage();
