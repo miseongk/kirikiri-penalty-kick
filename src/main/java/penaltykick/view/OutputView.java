@@ -29,11 +29,8 @@ public class OutputView {
 		printEndedTie();
 	}
 
-	public static void printStartFirstMessage() {
+	public static void printStartMessage() {
 		System.out.println(GAME_START_FIRST_MESSAGE);
-	}
-
-	public static void printStartSecondMessage() {
 		System.out.println(GAME_START_SECOND_MESSAGE);
 	}
 

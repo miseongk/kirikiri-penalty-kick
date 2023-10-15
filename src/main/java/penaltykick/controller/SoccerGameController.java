@@ -11,8 +11,7 @@ import penaltykick.view.OutputView;
 public class SoccerGameController {
 
 	public SoccerGameController() {
-		OutputView.printStartFirstMessage();
-		OutputView.printStartSecondMessage();
+		OutputView.printStartMessage();
 	}
 
 	public void playGame() {
