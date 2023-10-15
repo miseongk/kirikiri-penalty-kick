@@ -14,8 +14,10 @@ public class GameResult {
 	}
 
 	private int countGoal() {
-		return (int)Stream.iterate(0, i -> i + 1).limit(convertResult.size())
-			.filter(pos -> convertResult.get(pos).equals(true)).count();
+		return (int)Stream.iterate(0, i -> i + 1)
+			.limit(convertResult.size())
+			.filter(pos -> convertResult.get(pos).equals(true))
+			.count();
 	}
 
 	private List<Boolean> convertGameResult(List<Integer> computerPos, List<Integer> playerPos) {
