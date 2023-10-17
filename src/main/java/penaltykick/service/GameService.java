@@ -22,14 +22,6 @@ public class GameService {
 
     private GameService() {}
 
-    public static int countGoals(RoundResult roundResult) {
-        long goalCount = roundResult.getGoalResults().stream()
-                .filter(GoalResult.GOAL::equals)
-                .count();
-
-        return Math.toIntExact(goalCount);
-    }
-
     public static RoundResult playRound(List<Integer> BallPosition, String playerName) {
         Round round = new Round(keeperPositions, new BallPositions(BallPosition));
 
@@ -44,5 +36,13 @@ public class GameService {
         return Stream.of(firstRoundResult, secondRoundResult)
                 .max(Comparator.comparingInt(GameService::countGoals))
                 .map(RoundResult::getPlayerName);
+    }
+
+    private static int countGoals(RoundResult roundResult) {
+        long goalCount = roundResult.getGoalResults().stream()
+                .filter(GoalResult.GOAL::equals)
+                .count();
+
+        return Math.toIntExact(goalCount);
     }
 }
