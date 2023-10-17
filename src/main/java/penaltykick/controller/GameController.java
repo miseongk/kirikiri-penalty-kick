@@ -35,7 +35,7 @@ public class GameController {
     }
 
     private static void determineGameResult(RoundResult firstRoundResult, RoundResult secondRoundResult) {
-         printGameResults(firstRoundResult, secondRoundResult);
+        printGameResults(firstRoundResult, secondRoundResult);
         printWinner(firstRoundResult, secondRoundResult);
     }
 
