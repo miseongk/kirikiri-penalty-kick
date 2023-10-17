@@ -17,16 +17,24 @@ public class GameController {
     public static void playGame() {
         OutputView.printGameStartMessage(PenaltyPositions.getAttemptsCount());
 
-        List<Integer> firstBallPositions = InputView.readBallPositions(FIRST_PLAYER_NAME);
-        List<Integer> secondBallPositions = InputView.readBallPositions(SECOND_PLAYER_NAME);
+        RoundResult firstRoundResult = playRound(FIRST_PLAYER_NAME);
+        RoundResult secondRoundResult = playRound(SECOND_PLAYER_NAME);
 
-        determineGameResult(firstBallPositions, secondBallPositions);
+        determineGameResult(firstRoundResult, secondRoundResult);
     }
 
-    private static void determineGameResult(List<Integer> firstBallPositions, List<Integer> secondBallPositions) {
-        RoundResult firstRoundResult = GameService.playRound(firstBallPositions, FIRST_PLAYER_NAME);
-        RoundResult secondRoundResult = GameService.playRound(secondBallPositions, SECOND_PLAYER_NAME);
+    private static RoundResult playRound(String name) {
+        while (true) {
+            try {
+                List<Integer> BallPositions = InputView.readBallPositions(name);
+                return GameService.playRound(BallPositions, name);
+            } catch (IllegalArgumentException exception) {
+                OutputView.printExceptionMessage(exception);
+            }
+        }
+    }
 
+    private static void determineGameResult(RoundResult firstRoundResult, RoundResult secondRoundResult) {
         printGameResults(firstRoundResult, secondRoundResult);
         printWinner(firstRoundResult, secondRoundResult);
     }
