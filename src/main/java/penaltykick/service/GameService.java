@@ -13,16 +13,12 @@ import penaltykick.domain.position.KeeperPositions;
 import penaltykick.domain.position.PenaltyPositions;
 
 public class GameService {
-    private static KeeperPositions keeperPositions;
-
-    static {
-        int attemptsCount = PenaltyPositions.getAttemptsCount();
-        keeperPositions = new KeeperPositions(PositionsSelector.selectPositions(attemptsCount));
-    }
-
     private GameService() {}
 
     public static RoundResult playRound(List<Integer> BallPosition, String playerName) {
+        int attemptsCount = PenaltyPositions.getAttemptsCount();
+        KeeperPositions keeperPositions = new KeeperPositions(PositionsSelector.selectPositions(attemptsCount));
+
         Round round = new Round(keeperPositions, new BallPositions(BallPosition));
 
         return new RoundResult(round.getGoalResults(), playerName);
