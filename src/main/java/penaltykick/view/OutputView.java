@@ -19,6 +19,10 @@ public class OutputView {
         System.out.printf("총 %d번의 위치를 입력해주세요.\n", count);
     }
 
+    public static void printExceptionMessage(Exception exception) {
+        System.out.println(exception.getMessage());
+    }
+
     public static void printGameResultMessage() {
         System.out.println();
         System.out.println("게임 결과");
