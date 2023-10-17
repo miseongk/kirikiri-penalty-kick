@@ -2,6 +2,7 @@ package penaltykick.domain;
 
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +18,6 @@ public class ComputerPosition {
 	}
 
 	public List<Integer> getComputerPosition() {
-		return pickRandomPosition();
+		return Collections.unmodifiableList(pickRandomPosition());
 	}
 }

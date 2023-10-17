@@ -1,6 +1,7 @@
 package penaltykick.domain;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,6 +45,6 @@ public class PlayerPosition {
 	}
 
 	public List<Integer> getPlayerPosition() {
-		return playerPosition;
+		return Collections.unmodifiableList(playerPosition);
 	}
 }
