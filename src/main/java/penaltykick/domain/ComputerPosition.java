@@ -5,19 +5,19 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import penaltykick.constant.Constant;
 
 public class ComputerPosition {
-	private static final SecureRandom random = new SecureRandom();
 
-	private static List<Integer> pickRandomPosition() {
-		return Arrays.stream(new List[Constant.POSITION_LENGTH])
-			.map(num -> random.nextInt(Constant.END_RANGE) + Constant.START_RANGE)
-			.collect(Collectors.toList());
-	}
+    private static final SecureRandom random = new SecureRandom();
 
-	public List<Integer> getComputerPosition() {
-		return Collections.unmodifiableList(pickRandomPosition());
-	}
+    private static List<Integer> pickRandomPosition() {
+        return Arrays.stream(new List[Constant.POSITION_LENGTH])
+                .map(num -> random.nextInt(Constant.END_RANGE) + Constant.START_RANGE)
+                .collect(Collectors.toList());
+    }
+
+    public List<Integer> getComputerPosition() {
+        return Collections.unmodifiableList(pickRandomPosition());
+    }
 }
